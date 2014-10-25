@@ -1,11 +1,11 @@
 <?php
 
-    $db = new PDO('mysql:host=localhost;dbname=magic;charset=utf8', 'root', '');
+    $db = new PDO('mysql:host=localhost;dbname=magic;charset=utf8', 'root', 'root');
 
     try {
         //TODO test actually passign file name.  Add base path var to hold '/home/kevin/develop/magic/'
         //$fileName = $base_path.strtoupper($_Post["file"]);
-        $fileName = '/home/kevin/develop/magic/AllSets.json';
+        $fileName = 'AllSets.json';
     } catch (Exception $e) {
         echo 'File name not sent';
         echo $e->message;
@@ -37,7 +37,7 @@
     /*
      *  TODO - needs to check existence of set and update ather than insert
     */
-    function saveSet($db, $set) 
+    function saveSet($db, $set)
     {
         $insert_sql = 'INSERT INTO sets (
             set_name, set_border, set_code, set_gatherer_code, set_release_date, set_type, set_block
@@ -46,11 +46,11 @@
         )';
 
         $update_sql = 'UPDATE sets SET
-            set_name = :name, 
-            set_border = :border, 
-            set_gatherer_code = :gathererCode, 
-            set_release_date = :releaseDate, 
-            set_type = :type, 
+            set_name = :name,
+            set_border = :border,
+            set_gatherer_code = :gathererCode,
+            set_release_date = :releaseDate,
+            set_type = :type,
             set_block = :block
         WHERE set_code = :code';
 
@@ -59,7 +59,7 @@
         $select = $db->prepare($find_sql);
         $select->execute(array($set['code']));
         $current_set = $select->fetch();
-        
+
         if ($current_set) {
             echo "updating set coded ", $current_set['set_code'], PHP_EOL;
             $sql = $update_sql;
@@ -71,7 +71,7 @@
         }
 
         $stmt = $db->prepare($sql);
-        
+
         bindArray($stmt, 'name', 'name', $set, 'set_name', $current_set);
         bindArray($stmt, 'border', 'border', $set, 'set_border', $current_set);
         bindArray($stmt, 'code', 'code', $set, 'set_code', $current_set);
@@ -79,7 +79,7 @@
         bindArray($stmt, 'releaseDate', 'releaseDate', $set, 'set_release_date', $current_set);
         bindArray($stmt, 'type', 'type', $set, 'set_type', $current_set);
         bindArray($stmt, 'block', 'block', $set, 'set_block', $current_set);
-        
+
         $stmt->execute();
 
         //if it was an insert, return new id, otherwise return given set_id
@@ -90,45 +90,45 @@
         }
     }
 
-    function saveCard($db, $set_id, $card) 
+    function saveCard($db, $set_id, $card)
     {
-        
+
         $insert_sql = 'INSERT INTO cards (
             card_multiverse_id, card_name, card_mana_cost, card_cmc, card_colors,
-            card_type, card_supertypes, card_types, card_subtypes,  card_rarity, 
-            card_text, card_flavor, card_artist, card_number, card_power, 
-            card_toughness, card_loyalty, card_layout, card_variations, card_image_name, 
-            card_watermark, card_border, card_hand, card_life, card_rulings, 
+            card_type, card_supertypes, card_types, card_subtypes,  card_rarity,
+            card_text, card_flavor, card_artist, card_number, card_power,
+            card_toughness, card_loyalty, card_layout, card_variations, card_image_name,
+            card_watermark, card_border, card_hand, card_life, card_rulings,
             card_foreign_names, card_printings, card_original_text, card_original_type, card_legalities,
             set_id
         ) VALUES (
-            :multiverseid, :name, :manaCost, :cmc, :colors, 
-            :type,  :supertypes, :types, :subtypes, :rarity, 
-            :cardtext, :flavor, :artist, :cardnumber, :power, 
-            :toughness, :loyalty, :layout, :variations, :imageName, 
-            :watermark, :border, :hand, :life, :rulings, 
+            :multiverseid, :name, :manaCost, :cmc, :colors,
+            :type,  :supertypes, :types, :subtypes, :rarity,
+            :cardtext, :flavor, :artist, :cardnumber, :power,
+            :toughness, :loyalty, :layout, :variations, :imageName,
+            :watermark, :border, :hand, :life, :rulings,
             :foreignNames, :printings, :originalText, :originalType, :legalities,
             :set_id
         )';
 
         $update_sql = 'UPDATE cards SET
-            card_name = :name, 
-            card_layout = :layout, 
-            card_supertypes = :supertypes, 
-            card_type = :type, 
-            card_types = :types, 
-            card_subtypes = :subtypes, 
-            card_colors = :colors, 
-            card_multiverse_id = :multiverseid, 
-            card_cmc = :cmc, 
-            card_rarity = :rarity, 
-            card_artist :artist, 
+            card_name = :name,
+            card_layout = :layout,
+            card_supertypes = :supertypes,
+            card_type = :type,
+            card_types = :types,
+            card_subtypes = :subtypes,
+            card_colors = :colors,
+            card_multiverse_id = :multiverseid,
+            card_cmc = :cmc,
+            card_rarity = :rarity,
+            card_artist :artist,
             card_number = :cardnumber,
-            card_power :power, 
+            card_power :power,
             card_toughness :toughness,
-            card_manaCost = :manaCost, 
-            card_text = :cardtext, 
-            card_flavor = :flavor, 
+            card_manaCost = :manaCost,
+            card_text = :cardtext,
+            card_flavor = :flavor,
             card_image_name = :imageName,
             card_loyalty = :loyalty,
             card_variations = :variations,
@@ -170,10 +170,10 @@
         $stmt->bindValue(":set_id", $set_id, PDO::PARAM_INT);
 
         bindArray($stmt, 'name', 'name', $card, 'card_name', $current_card);
-        bindArray($stmt, 'layout','layout', $card, 'card_layout', $current_card);    
+        bindArray($stmt, 'layout','layout', $card, 'card_layout', $current_card);
         bindArray($stmt, 'supertypes', 'supertypes', $card, 'card_supertypes', $current_card);
         bindArray($stmt, 'type', 'type', $card, 'card_type', $current_card);
-        bindArray($stmt, 'types', 'types', $card, 'card_types', $current_card);       
+        bindArray($stmt, 'types', 'types', $card, 'card_types', $current_card);
         bindArray($stmt, 'subtypes', 'subtypes', $card, 'card_subtypes', $current_card);
         bindArray($stmt, 'colors', 'colors', $card, 'card_colors', $current_card);
         bindArray($stmt, 'multiverseid', 'multiverseid', $card, 'card_multiverse_id', $current_card);
@@ -209,11 +209,11 @@
         if (!isset($in_array[$in_key])) {
             if (isset($row_array)) {
                 $value = $row_array[$row_key];
-            } 
+            }
         }  else {
             $value = $in_array[$in_key];
         }
-        
+
         if (is_array($value)) {
             $value = implode(',', $value);
         }
