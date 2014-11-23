@@ -1,7 +1,7 @@
 <?php
 
     $db = new PDO('mysql:host=localhost;dbname=magic;charset=utf8', 'root', '');
-	ini_set("memory_limit","1000M");
+    ini_set("memory_limit","1000M");
 
     try {
         //TODO test actually passign file name.  Add base path var to hold '/home/kevin/develop/magic/'
@@ -40,20 +40,20 @@
     */
     function saveSet($db, $set)
     {
-        $insert_sql = 'INSERT INTO `set` (
-            name, border, code, gathererCode, releaseDate, type, block
+        $insert_sql = 'INSERT INTO sets (
+            set_name, set_border, set_code, set_gatherer_code, set_release_date, set_type, set_block
         ) VALUES (
             :name, :border, :code, :gathererCode, :releaseDate, :type, :block
         )';
 
         $update_sql = 'UPDATE sets SET
-            name = :name,
-            border = :border,
-            gathererCode = :gathererCode,
-            releaseDate = :releaseDate,
-            type = :type,
-            block = :block
-        WHERE code = :code';
+            set_name = :name,
+            set_border = :border,
+            set_gatherer_code = :gathererCode,
+            set_release_date = :releaseDate,
+            set_type = :type,
+            set_block = :block
+        WHERE set_code = :code';
 
         $find_sql = 'SELECT * FROM sets WHERE set_code = ?';
 
@@ -66,7 +66,7 @@
             $sql = $update_sql;
             $update_id = $current_set['set_id'];
         } else {
-            echo "inserting set coded ", $set['code'], PHP_EOL;
+            echo "<b>inserting set coded ", $set['code'], "<br /></b>";
             $sql = $insert_sql;
             $update_id = false;
         }
@@ -94,14 +94,14 @@
     function saveCard($db, $set_id, $card)
     {
 
-        $insert_sql = 'INSERT INTO card (
-            multiverseId, name, manaCost, cmc, colors,
-            type, supertypes, types, subtypes,  rarity,
-            text, flavor, artist, number, power,
-            toughness, loyalty, layout, variations, imageName,
-            watermark, border, hand, life, rulings,
-            foreignNames, printings, originalText, originalType, legalities,
-            `set`
+        $insert_sql = 'INSERT INTO cards (
+            card_multiverse_id, card_name, card_mana_cost, card_cmc, card_colors,
+            card_type, card_supertypes, card_types, card_subtypes,  card_rarity,
+            card_text, card_flavor, card_artist, card_number, card_power,
+            card_toughness, card_loyalty, card_layout, card_variations, card_image_name,
+            card_watermark, card_border, card_hand, card_life, card_rulings,
+            card_foreign_names, card_printings, card_original_text, card_original_type, card_legalities,
+            set_id
         ) VALUES (
             :multiverseid, :name, :manaCost, :cmc, :colors,
             :type,  :supertypes, :types, :subtypes, :rarity,
@@ -113,55 +113,55 @@
         )';
 
         $update_sql = 'UPDATE cards SET
-            name = :name,
-            layout = :layout,
-            supertypes = :supertypes,
-            type = :type,
-            types = :types,
-            subtypes = :subtypes,
-            colors = :colors,
-            multiverseId = :multiverseid,
-            cmc = :cmc,
-            rarity = :rarity,
-            artist :artist,
-            number = :cardnumber,
-            power = :power,
-            toughness :toughness,
-            manaCost = :manaCost,
-            text = :cardtext,
-            flavor = :flavor,
-            imageName = :imageName,
-            loyalty = :loyalty,
-            variations = :variations,
-            watermark = :watermark,
-            border = :border,
-            hand = :hand,
-            life = :life,
-            rulings = :rulings,
-            foreignNames = :foreignNames,
-            printings = :printings,
-            originalText = :originalText,
-            originalType = :originalType,
-            legalities = :legalities,
-            `set` = :set_id
-        WHERE multiverseId = :multiverseid';
+            card_name = :name,
+            card_layout = :layout,
+            card_supertypes = :supertypes,
+            card_type = :type,
+            card_types = :types,
+            card_subtypes = :subtypes,
+            card_colors = :colors,
+            card_multiverse_id = :multiverseid,
+            card_cmc = :cmc,
+            card_rarity = :rarity,
+            card_artist :artist,
+            card_number = :cardnumber,
+            card_power :power,
+            card_toughness :toughness,
+            card_manaCost = :manaCost,
+            card_text = :cardtext,
+            card_flavor = :flavor,
+            card_image_name = :imageName,
+            card_loyalty = :loyalty,
+            card_variations = :variations,
+            card_watermark = :watermark,
+            card_border = :border,
+            card_hand = :hand,
+            card_life = :life,
+            card_rulings = :rulings,
+            card_foreign_names = :foreignNames,
+            card_printings = :printings,
+            card_original_text = :originalText,
+            card_original_type = :originalType,
+            card_legalities = :legalities,
+            set_id = :set_id
+        WHERE card_multiverse_id = :multiverseid';
 
         $current_card = false;
         if(isset($card['multiverseid'])) {
-            $find_sql = 'SELECT * FROM cards WHERE multiverseId = ?';
+            $find_sql = 'SELECT * FROM cards WHERE card_multiverse_id = ?';
             $select = $db->prepare($find_sql);
             $select->execute(array($card['multiverseid']));
             $current_card = $select->fetch();
         }
 
         if ($current_card) {
-            echo "updating card id ", $current_card['multiverseId'], PHP_EOL;
+            echo "updating card id ", $current_card['card_multiverse_id'], PHP_EOL;
             $sql = $update_sql;
         } else {
             if (isset($card['multiverseid'])) {
-                echo "inserting card mutliverseid ", $card['multiverseid'], PHP_EOL;
+                echo "inserting card ", $card['name'], " mutliverseid ", $card['multiverseid'], "<br />";
             } else {
-                echo "inserting card with no multiverseid ", PHP_EOL;
+                echo "inserting card ", $card['name'], " with no multiverseid ", "<br />";
             }
             $sql = $insert_sql;
         }
