@@ -1,0 +1,6 @@
+<div class="container">
+    <h3></h3>
+    <%  _.each(data.cards, function(card) { %>
+        <a href="<%= sails.getBaseurl() %>/card/<%= card.id %>"><%= card.name %></a></br />
+    <% }) %>
+</div>

@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="row">
+        <h3> <%= data.set.name %> <img src="http://mtgimage.com/symbol/all/<%= data.set.code %>/c/32.png"></h3>
+        <div class="col-md-6">
+            <li> Name: <%= data.set.name %></li>
+            <li> Release Date: <%= data.set.releaseDate %></li>
+            <li> Type: <%= data.set.type %></li>
+            <% if (data.set.block) { %><li> Block: <%= data.set.block %></li><% } %>
+
+        </div>
+        <div class="col-md-6">
+            <a href="<%= sails.getBaseurl() %>/set/<%= data.set.id %>/card">Card List</a>
+        </div>
+    </div>
+</div>
