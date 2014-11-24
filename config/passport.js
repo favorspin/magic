@@ -49,7 +49,7 @@ module.exports.passport = {
       clientSecret: 'your-client-secret'
     }
   },
-
+/*
   google: {
     name: 'Google',
     protocol: 'oauth2',

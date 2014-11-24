@@ -1,0 +1,21 @@
+<div class="container">
+    <div>
+        <form role="form" action="/search" method="post">
+            Search for a Card: <input type="text" name="search" placeholder="Search">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+    <div>
+        <%  if (!data.cards) { %>
+            <hr>
+            There were no results for your search.
+        <% } else {
+            _.each(data.cards, function(card) { %>
+                <hr>
+                <img class="cardThumb" src="http://mtgimage.com/set/<%= card.set.code %>/<%= card.imageName %>.full.jpg">
+                <a href="<%= sails.getBaseurl() %>/card/<%= card.id %>"><%= card.name %></a> &mdash; <%= card.set.name %></br />
+                <%= card.rarity %>, <%= card.type %>
+            <% })
+        } %>
+    </div>
+</div>

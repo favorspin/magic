@@ -1,3 +1,3 @@
-# spinsapp
+# magic app
 
 a [Sails](http://sailsjs.org) application
