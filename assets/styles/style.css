@@ -1,3 +1,7 @@
 img.cardImage {
     width: 300px;
 }
+
+img.cardThumb {
+    height: 75px;
+}
