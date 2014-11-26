@@ -25,7 +25,7 @@
 <body>
 
      <!-- SETTINGS -->
-  <!--
+<!--
   <div class="btn-group" id="settings">
    <a class="btn btn-info" href="#" onclick="$('#settings .dropdown-menu').toggle();"><span class="fa fa-cogs"></span></a>
    <div class="dropdown-menu">
@@ -40,13 +40,16 @@
 
    </div>
   </div>
-  -->
+-->
 
     <div class="contain">
 
         <div class="left hidden-xs">
             <div class="sidebar">
-                <input class="typeahead" type="text" placeholder="Search..."><span id="search-icon" class="glyphicon glyphicon-search"></span>
+                <form role="form" action="/search" method="post">
+                  <input class="typeahead" type="text" name="search" placeholder="Search..."><span id="search-icon" class="glyphicon glyphicon-search"></span>
+                  <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;"/>
+                </form>
                 <div class="accordion">
                     <div class="accordion-group"><div class="accordion-heading"><a class="sbtn" href="index.html"><span class="fa fa-dashboard"></span><span class="full">Dashboard</span></a></div></div>
                     <div class="accordion-group"><div class="accordion-heading"><a class="sbtn" href="composition.html"><span class="fa fa-font"></span><span class="full">Composition</span></a></div></div>
