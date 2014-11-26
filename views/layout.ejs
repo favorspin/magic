@@ -1,102 +1,448 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>New Sails App</title>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Dashboard // Opacity Admin</title>
 
-    <!-- Viewport mobile tag for sensible mobile support -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Default Styles (DO NOT TOUCH) -->
+    <link rel="stylesheet" href="/styles/font-awesome.min.css">
+    <link rel="stylesheet" href="/styles/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/fonts.css">
+    <link rel="stylesheet" href="/styles/opacity-admin.css"/>
+
+    <!-- Adjustable Styles -->
+    <link rel="stylesheet" href="/styles/perfect-scrollbar.min.css">
+
+    <link rel="stylesheet" href="/styles/style.css"/>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <script src="lib/js/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+     <!-- SETTINGS -->
+  <!--
+  <div class="btn-group" id="settings">
+   <a class="btn btn-info" href="#" onclick="$('#settings .dropdown-menu').toggle();"><span class="fa fa-cogs"></span></a>
+   <div class="dropdown-menu">
+    <div class="title">Backgrounds</div>
+    <div class="main main-nr">
+     <ul class="bgs">
+      <li><a href="#" onclick="setBG(1);"><img src="/images/img/bg1.jpg"></a></li>
+      <li><a href="#" onclick="setBG(2);"><img src="/images/img/bg2.jpg"></a></li>
+      <li><a href="#" onclick="setBG(3);"><img src="/images/img/bg3.jpg"></a></li>
+     </ul>
+    </div>
+
+   </div>
+  </div>
+  -->
+
+    <div class="contain">
+
+        <div class="left hidden-xs">
+            <div class="sidebar">
+                <input class="typeahead" type="text" placeholder="Search..."><span id="search-icon" class="glyphicon glyphicon-search"></span>
+                <div class="accordion">
+                    <div class="accordion-group"><div class="accordion-heading"><a class="sbtn" href="index.html"><span class="fa fa-dashboard"></span><span class="full">Dashboard</span></a></div></div>
+                    <div class="accordion-group"><div class="accordion-heading"><a class="sbtn" href="composition.html"><span class="fa fa-font"></span><span class="full">Composition</span></a></div></div>
+                    <div class="accordion-group"><div class="accordion-heading"><a class="sbtn" href="charts.html"><span class="fa fa-bar-chart-o"></span><span class="full">Charts</span></a></div></div>
+                    <div class="accordion-group"><div class="accordion-heading"><a class="sbtn" href="widgets.html"><span class="fa fa-list-alt"></span><span class="full">Widgets</span></a></div></div>
+                    <div class="accordion-group">
+                     <div class="accordion-heading"><a class="sbtn" data-toggle="collapse" href="#c-ui"><span class="icon icon-credit-card"></span><span class="full">UI Elements</span><span class="caret"></span></a></div>
+                     <div id="c-ui" class="accordion-body collapse"><div class="accordion-inner">
+                      <a href="general.html" class="sbtn">General</a>
+                      <a href="buttons.html" class="sbtn">Buttons</a>
+                      <a href="notifications.html" class="sbtn">Notifications</a>
+                      <a href="icons.html" class="sbtn">Icons</a>
+                     </div></div>
+                    </div>
+                    <div class="accordion-group">
+                     <div class="accordion-heading"><a class="sbtn" data-toggle="collapse" href="#c-forms"><span class="fa fa-pencil-square-o"></span><span class="full">Forms</span><span class="caret"></span></a></div>
+                     <div id="c-forms" class="accordion-body collapse"><div class="accordion-inner">
+                      <a href="form_elements.html" class="sbtn">Form Elements</a>
+                      <a href="form_example.html" class="sbtn">Form Examples</a>
+                      <a href="form_validation.html" class="sbtn">Form Validation</a>
+                     </div></div>
+                    </div>
+                    <div class="accordion-group">
+                     <div class="accordion-heading"><a class="sbtn" data-toggle="collapse" href="#c-tables"><span class="fa fa-table"></span><span class="full">Tables</span><span class="caret"></span></a></div>
+                     <div id="c-tables" class="accordion-body collapse"><div class="accordion-inner">
+                      <a href="table_static.html" class="sbtn"><span class="icon icon-th-large"></span>Static Tables</a>
+                      <a href="table_datatables.html" class="sbtn"><span class="fa fa-table"></span>jQuery Datatables</a>
+                     </div></div>
+                    </div>
+                    <div class="accordion-group"><div class="accordion-heading"><a class="sbtn" href="gallery.html"><span class="fa fa-picture-o"></span><span class="full">Gallery</span></a></div></div>
+                    <div class="accordion-group"><div class="accordion-heading"><a class="sbtn" href="storyboard.html"><span class="fa fa-tasks"></span><span class="full">Storyboard</span></a></div></div>
+                    <div class="accordion-group"><div class="accordion-heading"><a class="sbtn" href="calendar.html"><span class="fa fa-calendar"></span><span class="full">Calendar</span></a></div></div>
+                    <div class="accordion-group"><div class="accordion-heading"><a class="sbtn" href="maps.html"><span class="fa fa-map-marker"></span><span class="full">Maps</span></a></div></div>
+                    <div class="accordion-group">
+                     <div class="accordion-heading"><a class="sbtn" data-toggle="collapse" href="#c-business"><span class="fa fa-building-o"></span><span class="full">Business</span><span class="caret"></span></a></div>
+                     <div id="c-business" class="accordion-body collapse"><div class="accordion-inner">
+                      <a href="pricing.html" class="sbtn">Pricing</a>
+                      <a href="invoice.html" class="sbtn">Invoice</a>
+                     </div></div>
+                    </div>
+                    <div class="accordion-group">
+                     <div class="accordion-heading"><a class="sbtn" data-toggle="collapse" href="#c-pages"><span class="fa fa-file-o"></span><span class="full">Pages</span><span class="caret"></span></a></div>
+                     <div id="c-pages" class="accordion-body collapse"><div class="accordion-inner">
+                      <a href="login.html" class="sbtn">Login</a>
+                      <a href="support.html" class="sbtn">Support</a>
+                      <a href="grid.html" class="sbtn">Grid</a>
+                      <a href="404.html" class="sbtn">404 Error</a>
+                     </div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="right">
+
+            <div class="col-md-12">
+                <div class="logo"><img id="logo" src="/images/img/logo3.png"></div>
+                <div class="logoxs"><img id="logo" src="/images/img/logo_sm.png"></div>
+                <div class="nav">
+                    <div class="hov">
+                        <div class="btn-group">
+                            <a class="con" href="" data-toggle="dropdown"><span class="fa fa-bell"></span></a>
+                            <div class="dropdown-menu pull-right" role="menu">
+                                <div class="drop-item">
+                                    <div class="drop-icon font-danger"><span class="fa fa-tachometer"></span></div>
+                                    <div class="drop-info">
+                                        <div class="drop-content">Phasellus tincidunt tincidunt velit shal...</div>
+                                        <div class="drop-description">Bandwidth</div>
+                                        <div class="drop-time">1/31 1:37 PM</div>
+                                    </div>
+                                </div>
+                                <div class="drop-item">
+                                    <div class="drop-icon font-success"><span class="fa fa-shopping-cart"></span></div>
+                                    <div class="drop-info">
+                                        <div class="drop-content">Ut tempus eros massa ut dolor, aenan...</div>
+                                        <div class="drop-description">Purchase</div>
+                                        <div class="drop-time">1/31 11:24 AM</div>
+                                    </div>
+                                </div>
+                                <div class="drop-item">
+                                    <div class="drop-icon font-warning"><span class="fa fa-laptop"></span></div>
+                                    <div class="drop-info">
+                                        <div class="drop-content">Aliquet fringilla sem. Suspendisse velit...</div>
+                                        <div class="drop-description">Server</div>
+                                        <div class="drop-time">1/31 6:07 AM</div>
+                                    </div>
+                                </div>
+                                <div class="drop-item">
+                                    <div class="drop-icon font-info"><span class="fa fa-info-circle"></span></div>
+                                    <div class="drop-info">
+                                        <div class="drop-content">Dolor ut eros velite sem shal tempetus...</div>
+                                        <div class="drop-description">Statistics</div>
+                                        <div class="drop-time">1/30 9:46 PM</div>
+                                    </div>
+                                </div>
+                                <div class="drop-item drop-footer">
+                                    <div class="drop-info">
+                                        <div class="drop-description">See all of the current alerts...</div>
+                                        <div class="drop-time"><span class="fa fa-angle-double-right"></span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn-group">
+                            <a class="con" href="" data-toggle="dropdown"><span class="fa fa-envelope"></span></a>
+                            <div class="dropdown-menu pull-right" role="menu">
+                                <div class="drop-item">
+                                    <div class="drop-icon font-unread"><span class="fa fa-envelope-o"></span></div>
+                                    <div class="drop-info">
+                                        <div class="drop-content">Phasellus tincidunt tincidunt velit shal...</div>
+                                        <div class="drop-description">Angela Johnson</div>
+                                        <div class="drop-time">1/31 1:37 PM</div>
+                                    </div>
+                                </div>
+                                <div class="drop-item">
+                                    <div class="drop-icon font-unread"><span class="fa fa-envelope-o"></span></div>
+                                    <div class="drop-info">
+                                        <div class="drop-content">Ut tempus eros massa ut dolor, aenan...</div>
+                                        <div class="drop-description">Steve Parsons</div>
+                                        <div class="drop-time">1/31 11:24 AM</div>
+                                    </div>
+                                </div>
+                                <div class="drop-item">
+                                    <div class="drop-icon font-read"><span class="fa fa-envelope-o"></span></div>
+                                    <div class="drop-info">
+                                        <div class="drop-content">Aliquet fringilla sem. Suspendisse velit...</div>
+                                        <div class="drop-description">Sam Wise</div>
+                                        <div class="drop-time">1/31 6:07 AM</div>
+                                    </div>
+                                </div>
+                                <div class="drop-item">
+                                    <div class="drop-icon font-read"><span class="fa fa-envelope-o"></span></div>
+                                    <div class="drop-info">
+                                        <div class="drop-content">Dolor ut eros velite sem shal tempetus...</div>
+                                        <div class="drop-description">Tim Bolton</div>
+                                        <div class="drop-time">1/30 9:46 PM</div>
+                                    </div>
+                                </div>
+                                <div class="drop-item">
+                                    <div class="drop-icon font-read"><span class="fa fa-envelope-o"></span></div>
+                                    <div class="drop-info">
+                                        <div class="drop-content">Sitel velit shal sem ut dolor massa tule...</div>
+                                        <div class="drop-description">Tim Bolton</div>
+                                        <div class="drop-time">1/30 9:46 PM</div>
+                                    </div>
+                                </div>
+                                <div class="drop-item drop-footer">
+                                    <div class="drop-info">
+                                        <div class="drop-description">See all of your messages...</div>
+                                        <div class="drop-time"><span class="fa fa-angle-double-right"></span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn-group">
+                            <a class="con" href="" data-toggle="dropdown"><span class="fa fa-user"></span></a>
+                            <ul class="dropdown-menu pull-right" role="menu">
+                                <li class="profile">
+                                    <div class="pic"><img src="/images/img/avatars/2.png"></div>
+                                    <div class="profile-info">
+                                        Jeffrey
+                                        <br><a href="#">Profile</a> - <a href="#">Settings</a>
+                                    </div>
+                                </li>
+                                <li class="linked"><a href="#"><span class="fa fa-envelope-o"></span>Messages</a></li>
+                                <li class="linked"><a href="#"><span class="fa fa-bell-o"></span>Notifications</a></li>
+                                <li class="linked"><a href="#"><span class="fa fa-calendar"></span>Tasks/Events</a></li>
+                                <li class="linked bottom"><a href="#"><span class="fa fa-reply"></span>Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BEGIN PAGE CONTENT -->
+            <div class="content">
+
+                <!-- BREADCRUMBS -->
+                <div id="bread" class="col-md-12">
+                    <div class="crumbs">
+                        <ol class="breadcrumb">
+                            <li><i class="fa fa-home"></i> <a href="<%= sails.getBaseurl() %>">Home</a></li>
+                            <li class="active">Dashboard Ѯ</li>
+                        </ol>
+                    </div>
+                </div>
 
 
-    <!--
-        Stylesheets and Preprocessors
-        ==============================
+                <div id="response" class="col-md-12">
+                    <div class="rep">
+                        <div style="float:right;" class="hov">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown"><span class="fa fa-bars"></span> Navigation <span class="caret"></span></button>
+                                <ul class="dropdown-menu pull-right" role="menu">
+                                    <li class="linked"><a href="index.html"><span class="fa fa-dashboard"></span><span class="full">Dashboard</span></a></li>
+                                    <li class="linked"><a href="composition.html"><span class="fa fa-font"></span><span class="full">Composition</span></a></li>
+                                    <li class="linked"><a href="charts.html"><span class="fa fa-bar-chart-o"></span><span class="full">Charts</span></a></li>
+                                    <li class="linked"><a href="widgets.html"><span class="fa fa-list-alt"></span><span class="full">Widgets</span></a></li>
+                                    <li class="linked-head"><span class="icon icon-credit-card"></span>UI Elements</li>
+                                    <li class="linked"><a href="general.html">General</a></li>
+                                    <li class="linked"><a href="buttons.html">Buttons</a></li>
+                                    <li class="linked"><a href="notifications.html">Notifications</a></li>
+                                    <li class="linked top"><a href="icons.html">Icons</a></li>
+                                    <li class="linked-head"><span class="fa fa-pencil-square-o"></span>Forms</li>
+                                    <li class="linked"><a href="form_elements.html">Form Elements</a></li>
+                                    <li class="linked"><a href="form_example.html">Form Examples</a></li>
+                                    <li class="linked top"><a href="form_validation.html">Form Validation</a></li>
+                                    <li class="linked-head"><span class="fa fa-table"></span>Tables</li>
+                                    <li class="linked"><a href="table_static.html"><span class="icon icon-th-large"></span>Static Tables</a></li>
+                                    <li class="linked"><a href="table_datatables.html"><span class="fa fa-table"></span>jQuery Datatables</a></li>
+                                    <li class="linked"><a href="gallery.html"><span class="fa fa-picture-o"></span><span class="full">Gallery</span></a></li>
+                                    <li class="linked"><a href="storyboard.html"><span class="fa fa-tasks"></span><span class="full">Storyboard</span></a></li>
+                                    <li class="linked"><a href="calendar.html"><span class="fa fa-calendar"></span><span class="full">Calendar</span></a></li>
+                                    <li class="linked top"><a href="maps.html"><span class="fa fa-map-marker"></span><span class="full">Maps</span></a></li>
+                                    <li class="linked-head"><span class="fa fa-building-o"></span>Business</li>
+                                    <li class="linked"><a href="pricing.html">Pricing</a></li>
+                                    <li class="linked top"><a href="invoice.html">Invoice</a></li>
+                                    <li class="linked-head"><span class="fa fa-file-o"></span>Pages</li>
+                                    <li class="linked"><a href="login.html">Login</a></li>
+                                    <li class="linked"><a href="support.html">Support</a></li>
+                                    <li class="linked"><a href="grid.html">Grid</a></li>
+                                    <li class="linked"><a href="404.html">404 Error</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-        You can always bring in CSS files manually with `<link>` tags, or asynchronously
-        using a solution like AMD (RequireJS).  Or, if you like, you can take advantage
-        of Sails' conventional asset pipeline (boilerplate Gruntfile).
+                <!-- FIRST ROW FLOT CHART & STATS -->
+                <div class="tbl">
+                    <div class="col-md-12">
+                        <div class="wdgt wdgt-dark">
+                        <div class="wdgt-header">Main</div>
+                            <div class="wdgt-body">
+                                <%- body %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-        By default, stylesheets from your `assets/styles` folder are included
-        here automatically (between STYLES and STYLES END). Both CSS (.css) and LESS (.less)
-        are supported. In production, your styles will be minified and concatenated into
-        a single file.
+            </div>
+            <!-- END PAGE CONTENT -->
 
-        To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
-        For example, here are a few things you could do:
+        </div>
 
-            + Change the order of your CSS files
-            + Import stylesheets from other directories
-            + Use a different or additional preprocessor, like SASS, SCSS or Stylus
-    -->
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    </div>
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
-    <!--STYLES-->
-    <link rel="stylesheet" href="/styles/importer.css">
-    <link rel="stylesheet" href="/styles/style.css">
-    <!--STYLES END-->
-  </head>
-
-  <body>
-    <%- body %>
-
-
-
-    <!--
-        Client-side Templates
-        ========================
-
-        HTML templates are important prerequisites of modern, rich client applications.
-        To work their magic, frameworks like Backbone, Angular, Ember, and Knockout require
-        that you load these templates client-side.
-
-        By default, your Gruntfile is configured to automatically load and precompile
-        client-side JST templates in your `assets/templates` folder, then
-        include them here automatically (between TEMPLATES and TEMPLATES END).
-
-        To customize this behavior to fit your needs, just edit `tasks/pipeline.js`.
-        For example, here are a few things you could do:
-
-            + Import templates from other directories
-            + Use a different template engine (handlebars, jade, dust, etc.)
-            + Internationalize your client-side templates using a server-side
-              stringfile before they're served.
-    -->
-
-    <!--TEMPLATES-->
-    
-    <!--TEMPLATES END-->
-
-
-    <!--
-
-      Client-side Javascript
-      ========================
-
-      You can always bring in JS files manually with `script` tags, or asynchronously
-      on the client using a solution like AMD (RequireJS).  Or, if you like, you can
-      take advantage of Sails' conventional asset pipeline (boilerplate Gruntfile).
-
-      By default, files in your `assets/js` folder are included here
-      automatically (between SCRIPTS and SCRIPTS END).  Both JavaScript (.js) and
-      CoffeeScript (.coffee) are supported. In production, your scripts will be minified
-      and concatenated into a single file.
-
-      To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
-      For example, here are a few things you could do:
-
-          + Change the order of your scripts
-          + Import scripts from other directories
-          + Use a different preprocessor, like TypeScript
-
-    -->
-
-    <!--SCRIPTS-->
     <script src="/js/dependencies/sails.io.js"></script>
-    <!--SCRIPTS END-->
-  </body>
+
+    <!-- Default JS (DO NOT TOUCH) -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery-ui.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/opacity.widgets.min.js"></script>
+    <script src="/js/hogan.min.js"></script>
+    <script src="/js/typeahead.min.js"></script>
+    <script src="/js/typeahead-example.js"></script>
+
+    <!-- Adjustable JS -->
+    <script src="/js/perfect-scrollbar.min.js"></script>
+    <script src="/js/opacity.switches.js"></script>
+    <script src="/js/flot/jquery.flot.min.js"></script>
+    <script src="/js/flot/jquery.flot.pie.min.js"></script>
+    <script src="/js/flot/jquery.flot.selection.min.js"></script>
+    <script>
+
+        $(document).ready(function() {
+            $('.switch4').change(function () {
+                if($(this).val() == 0){
+                    $('.contain').addClass('round');
+                }else{
+                    $('.contain').removeClass('round');
+                }
+            });
+
+            $('.switch5').change(function () {
+                var temp = $(".left").html();
+                if($(this).val() == 0){
+                    $(".left").remove();
+                    $('.right').after('<div class="left hidden-xs">'+temp+'</div>');
+                }else{
+                    $(".left").remove();
+                    $('.right').before('<div class="left hidden-xs">'+temp+'</div>');
+                }
+            });
+        });
+
+        function setBG(which){
+            $('body').css('background-image', 'url(images/img/bg'+which+'.jpg)');
+        }
+
+        $(document).ready(function() {
+            $('a[href="index.html"]').addClass('active').parent().parent().addClass('in');
+            flotSelectionChart();
+            flotPieChart();
+            $("#tabs").tabs();
+            $('.wdgt-tab, .wdgt-messages').perfectScrollbar({suppressScrollX:true});
+            $('.wdgt-messages').scrollTop(400);
+        });
+
+        $( window ).resize(function() {
+            flotSelectionChart();
+            flotPieChart();
+        });
+
+        function flotSelectionChart(){
+            var data = [{
+                label: "Website Hits", lines: { show: true, fill: true, fillColor: 'rgba(145, 199, 150, 0.45)' }, points: {show: true},
+                data: [[-0.5, 834], [0.5, 923], [2.5, 1245], [4.5, 1090], [6.5, 999], [8.5, 1056], [10.5, 1097], [12.5, 1354], [13.5, 999]]
+            }, {
+                label: "Unique Visitors", lines: { show: true, fill: true }, points: {show: true}, yaxis: 2,
+                data: [[-0.5, 7865], [0.5, 8976], [2.5, 19134], [4.5, 8452], [6.5, 8321], [8.5, 7987], [10.5, 8098], [12.5, 16237], [13.5, 7999]]
+            }, {
+                label: "Bots", lines: { show: true, fill: false }, points: {show: true}, yaxis: 3,
+                data: [[-0.5, 2144], [0.5, 3456], [2.5, 6777], [4.5, 2333], [6.5, 2111], [8.5, 1889], [10.5, 1999], [12.5, 5555], [13.5, 2000]]
+            }];
+
+            var options = { series: {},
+                colors: [ '#8BC198', '#7897C8', '#DAC582'],
+                legend: { noColumns: 1, backgroundOpacity:0.5, backgroundColor:'#FFF' },
+                xaxis: {
+                    min:0,
+                    max:13,
+                    ticks: [
+                        [ 0.5, "Sunday" ],
+                        [ 2.5, "Monday" ],
+                        [ 4.5, "Tuesday" ],
+                        [ 6.5, "Wednesday" ],
+                        [ 8.5, "Thursday" ],
+                        [ 10.5, "Today" ],
+                        [ 12.5, "Saturday" ]
+                    ]
+                },
+                yaxes: [
+                    { min:0, max:2000 },
+                    { show: false, min:0, max:40000 },
+                    { show: false, min:0, max:20000 }
+                ],
+                selection: { mode: "x" }
+            };
+
+            var placeholder = $("#placeholder");
+
+            var plot = $.plot(placeholder, data, options);
+
+            plot.setSelection({
+                xaxis: {
+                    from: 9.5,
+                    to: 11.5
+                }
+            });
+
+        }
+
+        function labelFormatter(label, series) {
+            return "<div style='font-size:8pt; text-align:center; padding:2px; color:rgba(255,255,255,0.8);'>" + Math.round(series.percent) + "% - " + label + " </div>";
+        }
+
+        function flotPieChart(){
+
+            var data = [];
+
+            for (var i = 0; i < 4; i++) {
+                if(i == 0){
+                    data[i] = { label: "Firefox", data: 28 }
+                }
+                if(i == 1){
+                    data[i] = { label: "Chrome", data: 46 }
+                }
+                if(i == 2){
+                    data[i] = { label: "Safari", data: 18 }
+                }
+                if(i == 3){
+                    data[i] = { label: "IE", data: 8 }
+                }
+            }
+
+            $.plot('#pieholder', data, {
+                colors: [ '#8BC198', '#7897C8', '#DAC582', '#7CACCE'],
+                series: {
+                    pie: {
+                        show: true,
+                        radius: 1,
+                        label: {
+                            show: true,
+                            radius: 3/4,
+                            formatter: labelFormatter,
+                            background: {  opacity: 0.5, color: '#000' }
+                        }
+                    }
+                },
+                legend: { show: false }
+            });
+        }
+
+    </script>
+
+</body>
 </html>
