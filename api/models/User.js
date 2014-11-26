@@ -8,16 +8,27 @@ var User = {
         username  : {
           type: 'string',
           unique: true,
-          required: true },
+          required: true
+        },
         email     : {
           type: 'email',
           unique: true,
-          required: true },
+          required: true
+        },
         gender    : { type: 'integer' },
         birthday  : { type: 'date' },
         passports : {
           collection: 'Passport',
-          via: 'user' }
+          via: 'user'
+        },
+          wantList      : {
+          collection    : 'wantList',
+          via           : 'user'
+        },
+        haveList        : {
+            collection  : 'haveList',
+            via         : 'user'
+        }
   }
 };
 
