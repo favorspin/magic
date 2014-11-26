@@ -38,7 +38,7 @@ module.exports = {
         originalText    : { type: 'string'  },
         originalType    : { type: 'string'  },
         legalities      : { type: 'string'  },
-        set             : { model: 'set' },
+        set             : { model: 'set' }
   }
 };
 
