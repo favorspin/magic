@@ -1,15 +1,6 @@
-<div class="container">
-    <div class="row">
-        <h3> <%= data.name %> <img src="http://mtgimage.com/symbol/all/<%= data.code %>/c/32.png"></h3>
-        <div class="col-md-6">
-            <li> Name: <%= data.name %></li>
-            <li> Release Date: <%= data.releaseDate %></li>
-            <li> Type: <%= data.type %></li>
-            <% if (data.block) { %><li> Block: <%= data.block %></li><% } %>
-
-        </div>
-        <div class="col-md-6">
-            <a href="<%= sails.getBaseurl() %>/card?set=<%= data.id %>">Card List</a>
-        </div>
-    </div>
-</div>
+<h3> <%= data.name %> <img src="http://mtgimage.com/symbol/all/<%= data.code %>/c/32.png"></h3>
+<li> Name: <%= data.name %></li>
+<li> Release Date: <%= data.releaseDate %></li>
+<li> Type: <%= data.type %></li>
+<% if (data.block) { %><li> Block: <%= data.block %></li><% } %>
+<li><a href="<%= sails.getBaseurl() %>/card?set=<%= data.id %>">Card List</a></li>

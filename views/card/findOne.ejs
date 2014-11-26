@@ -1,24 +1,16 @@
-<div class="container">
-    <div class="row">
-        <h3> <%= data.name %> </h3>
-        <div class="col-md-6">
-            <li> Name: <%= data.name %></li>
-            <% if (data.manaCost) { %><li> Casting Cost: <%= data.manaCost %></li><% } %>
-            <li> Card Set: <img src="http://mtgimage.com/symbol/all/<%= data.set.code %>/<% if (data.rarity === 'Basic Land') { %>Common<% } else { %><%= data.rarity %><% } %>/16.png"> &mdash; <a href="<%= sails.getBaseurl() %>/set/<%= data.set.id %>"><%= data.set.name %></a>, <%= data.rarity %></li>
-            <li> Card Type: <%= data.type %></li>
-            <li> Color: <% if (data.colors) { %> <%= data.colors %> <% } else { %> Colorless <% } %></li>
-            <li> Card Text: <%= data.text %></li>
-            <% if (data.flavor) { %><li> Flavor Text: <%= data.flavor %></li> <% } %>
-            <li> Artist: <%= data.artist %></li>
-            <form role="form" action="/wantList?user=1&condition=1&qty=1&card=<%= data.id %>" method="post">
-                <button type="submit">Add this to your want list</button>
-            </form>
-            <form role="form" action="/haveList?user=1&condition=1&qty=1&card=<%= data.id %>" method="post">
-                <button type="submit">Add this to your have list</button>
-            </form>
-        </div>
-        <div class="col-md-6">
-            <img class="cardImage" src="http://mtgimage.com/set/<%= data.set.code %>/<%= data.imageName %>.full.jpg ">
-        </div>
-    </div>
-</div>
+<h3> <%= data.name %> </h3>
+<img class="cardImage" src="http://mtgimage.com/set/<%= data.set.code %>/<%= data.imageName %>.full.jpg ">
+<li> Name: <%= data.name %></li>
+<% if (data.manaCost) { %><li> Casting Cost: <%= data.manaCost %></li><% } %>
+<li> Card Set: <img src="http://mtgimage.com/symbol/all/<%= data.set.code %>/<% if (data.rarity === 'Basic Land') { %>Common<% } else { %><%= data.rarity %><% } %>/16.png"> &mdash; <a href="<%= sails.getBaseurl() %>/set/<%= data.set.id %>"><%= data.set.name %></a>, <%= data.rarity %></li>
+<li> Card Type: <%= data.type %></li>
+<li> Color: <% if (data.colors) { %> <%= data.colors %> <% } else { %> Colorless <% } %></li>
+<li> Card Text: <%= data.text %></li>
+<% if (data.flavor) { %><li> Flavor Text: <%= data.flavor %></li> <% } %>
+<li> Artist: <%= data.artist %></li>
+<form role="form" action="/wantList?user=1&condition=1&qty=1&card=<%= data.id %>" method="post">
+    <button type="submit">Add this to your want list</button>
+</form>
+<form role="form" action="/haveList?user=1&condition=1&qty=1&card=<%= data.id %>" method="post">
+    <button type="submit">Add this to your have list</button>
+</form>
