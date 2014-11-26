@@ -1,7 +1,6 @@
-<div class="container">
+
 <h3>All Sets</h3>
     <%  _.each(data, function(set) { %>
         <img src="http://mtgimage.com/symbol/all/<%= set.code %>/c/16.png">
         <a href="http://localhost:1337/card?set=<%= set.id %>"><%= set.name %></a><br />
     <% }) %>
-</div>
