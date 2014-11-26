@@ -15,7 +15,7 @@ module.exports = {
 
         Card.find({
             like: { name: '%'+req.param('search')+'%' },
-            sort: 'name'
+            sort: { name: 1, set: 1 }
         }).populate('set').exec(function(err, cards) {
             if(err) {
                 res.badRequest('There was an error. Please try again.', 'search/index');
