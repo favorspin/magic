@@ -18,7 +18,8 @@ module.exports = {
         block           : { type: 'string' },
         cards           : {
             collection: 'card',
-            via: 'set' }
+            via: 'set'
+        }
   }
 };
 

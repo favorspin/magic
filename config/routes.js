@@ -47,47 +47,19 @@ module.exports.routes = {
 	'get /auth/:provider/callback': 'AuthController.callback',
 	'get /auth/:provider/:action': 'AuthController.callback',
 
- 	// Set Routes
-  'get /set': {
-   	controller: 'SetController',
-    action: 'index',
-    skipAssets: true
-	},
-  'get /set/:setId': {
-    controller: 'SetController',
-    action: 'show',
-    skipAssets: true
-  },
-
-  // Card Routes
-	'get /set/:setId/card': {
-		controller: 'CardController',
-		action: 'index',
-    skipAssets: true
-	},
-  'get /set/:setId/card/:cardId': {
-    controller: 'CardController',
-    action: 'show',
-    skipAssets: true
-  },
-  'get /card': {
-    controller: 'CardController',
-    action: 'index',
-    skipAssets: true
-  },
-  'get /card/:cardId': {
-    controller: 'CardController',
-    action: 'show',
-    skipAssets: true
-  },
-
   // Search Routes
   'get /search': {
     controller: 'SearchController',
     action: 'index',
     skipAssets: true
   },
-  'post /search': 'SearchController.search'
+  'post /search': 'SearchController.search',
+  'get /advancedSearch': {
+    controller: 'SearchController',
+    action: 'index',
+    skipAssets: true
+  },
+  'post /advancedSearch': 'SearchController.advancedSearch'
 
   /***************************************************************************
   *                                                                          *
