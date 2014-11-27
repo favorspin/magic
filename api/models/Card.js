@@ -18,7 +18,10 @@ module.exports = {
         types           : { type: 'string'  },
         subtypes        : { type: 'string'  },
         rarity          : { type: 'string'  },
-        text            : { type: 'string'  },
+        text            : {
+            type: 'string',
+            size: 1000
+        },
         flavor          : { type: 'string'  },
         artist          : { type: 'string'  },
         number          : { type: 'string'  },

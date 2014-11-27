@@ -1,5 +1,49 @@
 
-    <h3>Want List</h3>
-    <%  _.each(data, function(wanted) { %>
-        <a href="<%= sails.getBaseurl() %>/card/<%= wanted.card.id %>"><%= wanted.card.name %></a> &mdash; <%= wanted.qty %>, <%= wanted.condition.shorthand %></br />
-    <% }) %>
+    <div>
+        <%  if (!data) { %>
+            <hr>
+            There are no cards in this Have List.
+        <% } else { %>
+        <hr>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Rarity</th>
+                    <th>Set</th>
+                    <th>Type</th>
+                    <th>Condition</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+            <%_.each(data, function(has) { %>
+                <tr>
+                    <td>
+                        <a href="<%= sails.getBaseurl() %>/card/<%= has.card.id %>"><img class="cardThumb" src="http://mtgimage.com/set/<%= has.card.set.code %>/<%= has.card.imageName %>.full.jpg"></a>
+                    </td>
+                    <td>
+                        <a href="<%= sails.getBaseurl() %>/card/<%= has.card.id %>"><%= has.card.name %></a>
+                    </td>
+                    <td>
+                        <%= has.card.rarity %>
+                    </td>
+                    <td>
+                        <a href="<%= sails.getBaseurl() %>/set/<%= has.card.set %>"><%= has.card.set.name %></a>
+                    </td>
+                    <td>
+                        <%= has.card.type %>
+                    </td>
+                    <td>
+                        <%= has.condition.shorthand %>
+                    </td>
+                    <td>
+                        <input type="number" value="<%= has.qty %>">
+                    </td>
+                </tr>
+            <% }) %>
+            </tbody>
+        </table>
+        <% } %>
+    </div>
