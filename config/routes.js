@@ -59,7 +59,11 @@ module.exports.routes = {
     action: 'index',
     skipAssets: true
   },
-  'post /advancedSearch': 'SearchController.advancedSearch'
+  'post /advancedSearch': 'SearchController.advancedSearch',
+
+  // have/want list routes
+  'post /haveList': 'HaveListController.add',
+  'post /wantList': 'WantListController.add'
 
   /***************************************************************************
   *                                                                          *
