@@ -30,8 +30,8 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/michaelorcutt/spinsapp.git"
+    "url": "git://github.com/favorspin/magic.git"
   },
-  "author": "michaelorcutt",
+  "author": "favorspin",
   "license": ""
 }

@@ -2,41 +2,20 @@
 
 a [Sails](http://sailsjs.org) application
 
-TODO:
+##Pupose
+A Magic the Gathering online database and card library. User libraries are searchable and trades can be initiated from within the app.
 
-Cards:
-Paginate results more than 30
-Choose Sort Options
-Change list to table
+##Dependencies
+Node.js 1.4.28+  
+Sails.js 0.10.5+  
+MySQL
 
-Search:
-    User search
-        - update main search/results to display both users/cards
-    User Have list search
+##Install
+Set up your connections in config/connections.js.
 
-Users:
-    Create Profile View
-    Set up policies to only view certain pages when logged in
-    Change menus based on logged in status
+When running Sails.js for the first time, choose option 2 (alter) or 3 (drop), to create the appropriate tables in your database. Each time after, or in production, choose option 1 (safe). This setting can also be set to a default in config/models.js.
 
-Have/Want Lists
-    Paginate results more than 30
-    Be able to change quantities from summary page
-    Paginate list
-    Choose different sort options
+To install the database of cards, download AllSets.json from mtgjson.com. Place in the top level directory and run uploadFile.php.
 
-Trade:
-    Decide trade stages
-    Build trade system
-    Build view for current trades
-
-Messages:
-    Build messaging system
-    Build view for messages
-        - received
-        - sent
-    Fix messaging drop down on homepage
-
-Notifications:
-    Build notification system
-    Fix notificatoin drop down on homepage
+###Contributions
+If you would like to contribute or have questions, please email <spencer.rodriguez@me.com>, or fork the repository and submit pull requests.

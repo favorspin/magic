@@ -1,5 +1,40 @@
-
-    <h3></h3>
-    <%  _.each(data, function(card) { %>
-        <a href="<%= sails.getBaseurl() %>/card/<%= card.id %>"><%= card.name %></a></br />
-    <% }) %>
+    <div>
+        <%  if (!data) { %>
+            <hr>
+            There are no cards in the database
+        <% } else { %>
+        <hr>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Rarity</th>
+                    <th>Set</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody>
+            <%_.each(data, function(card) { %>
+                <tr>
+                    <td>
+                        <a href="<%= sails.getBaseurl() %>/card/<%= card.id %>"><img class="cardThumb" src="http://mtgimage.com/set/<%= card.set.code %>/<%= card.imageName %>.full.jpg"></a>
+                    </td>
+                    <td>
+                        <a href="<%= sails.getBaseurl() %>/card/<%= card.id %>"><%= card.name %></a>
+                    </td>
+                    <td>
+                        <%= card.rarity %>
+                    </td>
+                    <td>
+                        <a href="<%= sails.getBaseurl() %>/set/<%= card.set.id %>"><%= card.set.name %></a>
+                    </td>
+                    <td>
+                        <%= card.type %>
+                    </td>
+                </tr>
+            <% }) %>
+            </tbody>
+        </table>
+        <% } %>
+    </div>
