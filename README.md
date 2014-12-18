@@ -2,7 +2,7 @@
 
 a [Sails](http://sailsjs.org) application
 
-##Pupose
+##Purpose
 A Magic the Gathering online database and card library. User libraries are searchable and trades can be initiated from within the app.
 
 ##Dependencies
