@@ -1,4 +1,4 @@
-<h3> <%= data.name %> <img src="http://mtgimage.com/symbol/all/<%= data.code %>/c/32.png"></h3>
+<h3> <%= data.name %> <img src="http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=<% if (data.gathererCode) { %><%= data.gathererCode %><% } else { %><%= data.code %><% } %>&size=small&rarity=C"></h3>
 <li> Name: <%= data.name %></li>
 <li> Release Date: <%= data.releaseDate %></li>
 <li> Type: <%= data.type %></li>
