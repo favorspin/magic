@@ -2,7 +2,7 @@
     <div>
         <%  if (!data) { %>
             <hr>
-            There are no cards in this Have List.
+            There are no cards in this Want List.
         <% } else { %>
         <hr>
         <table class="table table-striped">
@@ -21,7 +21,7 @@
             <%_.each(data, function(has) { %>
                 <tr>
                     <td>
-                        <a href="<%= sails.getBaseurl() %>/card/<%= has.card.id %>"><img class="cardThumb" src="http://mtgimage.com/set/<%= has.card.set.code %>/<%= has.card.imageName %>.full.jpg"></a>
+                        <a href="<%= sails.getBaseurl() %>/card/<%= has.card.id %>"><img class="cardThumb" src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=<%= has.card.multiverseId %>&type=card"></a>
                     </td>
                     <td>
                         <a href="<%= sails.getBaseurl() %>/card/<%= has.card.id %>"><%= has.card.name %></a>

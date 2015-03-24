@@ -1,6 +1,6 @@
 
 <h3>All Sets</h3>
     <%  _.each(data, function(set) { %>
-        <img src="http://mtgimage.com/symbol/all/<%= set.code %>/c/16.png">
-        <a href="http://localhost:1337/card?set=<%= set.id %>"><%= set.name %></a><br />
+        <img src="http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=<% if (set.gathererCode) { %><%= set.gathererCode %><% } else { %><%= set.code %><% } %>&size=small&rarity=C">
+        <a href="<%= sails.getBaseurl() %>/card?set=<%= set.id %>"><%= set.name %></a><br />
     <% }) %>

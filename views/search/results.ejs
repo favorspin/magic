@@ -24,7 +24,7 @@
             <%_.each(data.cards, function(card) { %>
                 <tr>
                     <td>
-                        <a href="<%= sails.getBaseurl() %>/card/<%= card.id %>"><img class="cardThumb" src="http://mtgimage.com/set/<%= card.set.code %>/<%= card.imageName %>.full.jpg"></a>
+                        <a href="<%= sails.getBaseurl() %>/card/<%= card.id %>"><img class="cardThumb" src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=<%= card.multiverseId %>&type=card"></a>
                     </td>
                     <td>
                         <a href="<%= sails.getBaseurl() %>/card/<%= card.id %>"><%= card.name %></a>

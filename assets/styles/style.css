@@ -1,5 +1,8 @@
 img.cardImage {
-    width: 300px;
+    border:none;
+    border-radius:13px;
+    -webkit-border-radius:13px;
+    -moz-border-radius:13px;
 }
 
 img.cardThumb {
