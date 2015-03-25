@@ -70,6 +70,9 @@ var AuthController = {
    */
   logout: function (req, res) {
     req.logout();
+    // set authenticated to false and null user
+    req.session.authenticated = false;
+    req.session.user = null;
     res.redirect('/');
   },
 
@@ -162,6 +165,9 @@ var AuthController = {
           return tryAgain();
         }
 
+        // set authenticated variable and user info
+        req.session.authenticated = true;
+        req.session.user = user;
         // Upon successful login, send the user to the homepage were req.user
         // will available.
         res.redirect('/');

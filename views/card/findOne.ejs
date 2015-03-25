@@ -8,14 +8,16 @@
 <li> Card Text: <%= data.text %></li>
 <% if (data.flavor) { %><li> Flavor Text: <%= data.flavor %></li> <% } %>
 <li> Artist: <%= data.artist %></li>
+<% if(req.session.authenticated) { %>
 <form role="form" method="post">
     <input type="number" name="qty" value="1">
     <input type="radio" name="condition" value="1" checked>NM/M,
     <input type="radio" name="condition" value="2">SP,
     <input type="radio" name="condition" value="3">MP,
     <input type="radio" name="condition" value="4">HP
-    <input type="hidden" name="user" value="1">
+    <input type="hidden" name="user" value="<%= req.session.user.id %>">
     <input type="hidden" name="cardId" value="<%= data.id %>">
     <button type="submit" formaction="/wantList">Add this to your want list</button>
     <button type="submit" formaction="/haveList">Add this to your have list</button>
 </form>
+<% } %>

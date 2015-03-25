@@ -60,6 +60,7 @@
                             </a>
                         </div>
                     </div>
+                    <% if(req.session.authenticated) { %>
                     <div class="accordion-group">
                         <div class="accordion-heading">
                             <a class="sbtn" data-toggle="collapse" href="#c-dash">
@@ -70,18 +71,19 @@
                         </div>
                         <div id="c-dash" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                <a href="/haveList?user=1" class="sbtn">
+                                <a href="/haveList?user=<%= req.session.user.id %>" class="sbtn">
                                     <span class="fa fa-archive"></span>Collection
                                 </a>
                                 <a href="buttons.html" class="sbtn">
                                     <span class="fa fa-book"></span>Trades
                                 </a>
-                                <a href="/wantList?user=1" class="sbtn">
+                                <a href="/wantList?user=<%= req.session.user.id %>" class="sbtn">
                                     <span class="fa fa-bars"></span>Want List
                                 </a>
                             </div>
                         </div>
                     </div>
+                    <% } %>
                     <div class="accordion-group">
                         <div class="accordion-heading">
                             <a class="sbtn" href="/search">
@@ -216,12 +218,20 @@
                             <a class="con" href="" data-toggle="dropdown"><span class="fa fa-user"></span></a>
                             <ul class="dropdown-menu pull-right" role="menu">
                                 <li class="profile">
+
                                     <div class="pic"><img src="/images/img/avatars/2.png"></div>
+                                    <% if (req.session.authenticated) { %>
                                     <div class="profile-info">
-                                        Jeffrey
+                                        <%= req.session.user.forename %>
                                         <br><a href="#">Profile</a> - <a href="#">Settings</a>
                                     </div>
+                                    <% } else { %>
+                                    <div class="profile-info">
+                                        You are not Logged in.
+                                    </div>
+                                    <% } %>
                                 </li>
+                                <% if(req.session.authenticated) { %>
                                 <li class="linked">
                                     <a href="#">
                                         <span class="fa fa-envelope-o"></span>Messages
@@ -237,8 +247,9 @@
                                         <span class="fa fa-calendar"></span>Tasks/Events
                                     </a>
                                 </li>
+                                <% } %>
                                 <li class="linked bottom">
-                                    <% if (locals.user) { %>
+                                    <% if (req.session.authenticated) { %>
                                         <a href="<%= sails.getBaseurl() %>/logout">
                                             <span class="icon icon-log-out"></span>Logout
                                         </a>
@@ -281,18 +292,20 @@
                                             <span class="full">Home</span>
                                         </a>
                                     </li>
+                                    <% if(req.session.authenticated) { %>
                                     <li class="linked-head">
                                         <span class="fa fa-dashboard"></span>Dashboard
                                     </li>
                                     <li class="linked">
-                                        <a href="/haveList?user=1">Collection</a>
+                                        <a href="/haveList?user=<%= req.session.user.id %>">Collection</a>
                                     </li>
                                     <li class="linked">
                                         <a href="buttons.html">Trades</a>
                                     </li>
                                     <li class="linked top">
-                                        <a href="/wantList?user=1">Want List</a>
+                                        <a href="/wantList?user=<%= req.session.user.id %>">Want List</a>
                                     </li>
+                                    <% } %>
                                     <li class="linked">
                                         <a href="composition.html">
                                             <span class="icon icon-list-alt"></span>

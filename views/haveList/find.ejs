@@ -38,9 +38,15 @@
                     <td>
                         <%= has.condition.shorthand %>
                     </td>
+                    <% if(req.session.authenticated && req.session.user.id == req.param('user')) { %>
                     <td>
                         <input type="number" value="<%= has.qty %>">
                     </td>
+                    <% } else { %>
+                    <td>
+                        <%= has.qty %>
+                    </td>
+                    <% } %>
                 </tr>
             <% }) %>
             </tbody>

@@ -28,6 +28,14 @@ module.exports.policies = {
 
   '*': [ 'passport' ],
 
+  HaveListController: {
+      add: ['sessionAuth']
+  },
+
+  WantListController: {
+      add: ['sessionAuth']
+  }
+
 
   /***************************************************************************
   *                                                                          *
