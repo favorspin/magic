@@ -92,6 +92,7 @@
                             </a>
                         </div>
                     </div>
+                    <% if(req.session.authenticated) { %>
                     <div class="accordion-group">
                         <div class="accordion-heading">
                             <a class="sbtn" data-toggle="collapse" href="#c-user">
@@ -109,6 +110,7 @@
                             </div>
                         </div>
                     </div>
+                    <% } %>
                 </div>
             </div>
         </div>
@@ -312,6 +314,7 @@
                                             <span class="full">Card Libaray</span>
                                         </a>
                                     </li>
+                                    <% if(req.session.authenticated) { %>
                                     <li class="linked-head">
                                         <span class="fa fa-dashboard"></span>User
                                     </li>
@@ -325,8 +328,9 @@
                                         <a href="buttons.html">Messages</a>
                                     </li>
                                     <li class="linked top">
-                                        <a href="notifications.html">Log Out</a>
+                                        <a href="/logout">Log Out</a>
                                     </li>
+                                    <% } %>
                                 </ul>
                             </div>
                         </div>
