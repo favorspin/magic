@@ -1,0 +1,40 @@
+
+
+    <div>
+        <% if (req.session.authenticated && (data.receiver.id == req.session.user.id || data.sender.id == req.session.user.id)) { %>
+        <%  if (!data) { %>
+            <hr>
+            Message does not exist.
+        <% } else { %>
+        <hr>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th><%= data.subject %></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        From: <%= data.sender.username %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Date: <%= data.createdAt %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Message:
+                        <p><%= data.message %></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <% } %>
+        <% } else { %>
+        <hr>
+        You do not have permission to view this page
+        <% } %>
+    </div>

@@ -1,7 +1,7 @@
 <h3> <%= data.name %> </h3>
 
 
-    <img class="cardImage" src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=<%= data.multiverseId %>&type=card">
+<img class="cardImage" src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=<%= data.multiverseId %>&type=card">
 
 <ul class="cardInfo">
     <li> Name: <%= data.name %></li>
@@ -14,7 +14,7 @@
     <li> Artist: <%= data.artist %></li>
 </ul>
 <% if(req.session.authenticated) { %>
-<p>
+<div class="listForm">
 <form role="form" method="post">
     <input type="number" name="qty" value="1">
     <input type="radio" name="condition" value="1" checked>NM/M,
@@ -26,5 +26,5 @@
     <button type="submit" formaction="/wantList">Add this to your want list</button>
     <button type="submit" formaction="/haveList">Add this to your have list</button>
 </form>
-</p>
+</div>
 <% } %>

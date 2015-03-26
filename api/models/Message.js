@@ -8,8 +8,8 @@
 module.exports = {
 
   attributes: {
-    receiverId      : { model: 'user' },
-    senderId        : { model: 'user' },
+    receiver        : { model: 'user' },
+    sender          : { model: 'user' },
     subject         : { type: 'string' },
     message         : { type: 'text' },
     read            : { type: 'integer' },

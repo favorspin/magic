@@ -1,0 +1,44 @@
+
+
+    <div>
+        <% if (req.session.authenticated && (req.param('receiver') == req.session.user.id || req.param('sender') == req.session.user.id)) { %>
+        <% if (req.param('receiver')) { %>
+            Inbox
+        <% } else { %>
+            Sent Messages
+        <% } %>
+        <%  if (!data || data.length < 1) { %>
+            <hr>
+            You have no messages. <a href="user/">Make a friend!</a>
+        <% } else { %>
+        <hr>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>From</th>
+                    <th>Subject</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+            <%_.each(data, function(message) { %>
+                <tr>
+                    <td>
+                        <%= message.sender.username %>
+                    </td>
+                    <td>
+                        <a href="message/<%= message.id %>"><%= message.subject %></a>
+                    </td>
+                    <td>
+                        <%= message.createdAt %>
+                    </td>
+                </tr>
+            <% }) %>
+            </tbody>
+        </table>
+        <% } %>
+        <% } else { %>
+        <hr>
+        You do not have permission to view this page
+        <% } %>
+    </div>
