@@ -4,7 +4,29 @@ img.cardImage {
     -webkit-border-radius:13px;
     -moz-border-radius:13px;
 }
-
 img.cardThumb {
     height: 75px;
+}
+.imageContainer {
+    float: left;
+    width: 50%;
+}
+.cardInfo {
+    float: right;
+    width: 50%;
+}
+form {
+    float: clear;
+}
+
+@media screen and (max-width: 600px) {
+    .cardInfo {
+        margin: 20px 0;
+        width: 100%;
+    }
+    img.cardImage {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }

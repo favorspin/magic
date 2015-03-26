@@ -1,14 +1,20 @@
 <h3> <%= data.name %> </h3>
-<img class="cardImage" src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=<%= data.multiverseId %>&type=card">
-<li> Name: <%= data.name %></li>
-<% if (data.manaCost) { %><li> Casting Cost: <%= data.manaCost %></li><% } %>
-<li> Card Set: <img src="http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=<% if (data.set.gathererCode) { %><%= data.set.gathererCode %><% } else { %><%= data.set.code %><% } %>&size=small&rarity=<% if (data.rarity === 'Basic Land' || data.rarity === 'Common') { %>C<% } else if (data.rarity === 'Uncommon') { %>U<% } else if (data.rarity === 'Rare') { %>R<% } else { %>M<% } %>"> &mdash; <%= data.set.name %></a>, <%= data.rarity %></li>
-<li> Card Type: <%= data.type %></li>
-<li> Color: <% if (data.colors) { %> <%= data.colors %> <% } else { %> Colorless <% } %></li>
-<li> Card Text: <%= data.text %></li>
-<% if (data.flavor) { %><li> Flavor Text: <%= data.flavor %></li> <% } %>
-<li> Artist: <%= data.artist %></li>
+
+
+    <img class="cardImage" src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=<%= data.multiverseId %>&type=card">
+
+<ul class="cardInfo">
+    <li> Name: <%= data.name %></li>
+    <% if (data.manaCost) { %><li> Casting Cost: <%= data.manaCost %></li><% } %>
+    <li> Card Set: <img src="http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=<% if (data.set.gathererCode) { %><%= data.set.gathererCode %><% } else { %><%= data.set.code %><% } %>&size=small&rarity=<% if (data.rarity === 'Basic Land' || data.rarity === 'Common') { %>C<% } else if (data.rarity === 'Uncommon') { %>U<% } else if (data.rarity === 'Rare') { %>R<% } else { %>M<% } %>"> &mdash; <%= data.set.name %></a>, <%= data.rarity %></li>
+    <li> Card Type: <%= data.type %></li>
+    <li> Color: <% if (data.colors) { %> <%= data.colors %> <% } else { %> Colorless <% } %></li>
+    <li> Card Text: <%= data.text %></li>
+    <% if (data.flavor) { %><li> Flavor Text: <%= data.flavor %></li> <% } %>
+    <li> Artist: <%= data.artist %></li>
+</ul>
 <% if(req.session.authenticated) { %>
+<p>
 <form role="form" method="post">
     <input type="number" name="qty" value="1">
     <input type="radio" name="condition" value="1" checked>NM/M,
@@ -20,4 +26,5 @@
     <button type="submit" formaction="/wantList">Add this to your want list</button>
     <button type="submit" formaction="/haveList">Add this to your have list</button>
 </form>
+</p>
 <% } %>

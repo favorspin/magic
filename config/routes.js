@@ -50,7 +50,7 @@ module.exports.routes = {
   // Search Routes
   'get /search': {
     controller: 'SearchController',
-    action: 'index',
+    action: 'search',
     skipAssets: true
   },
   'post /search': 'SearchController.search',

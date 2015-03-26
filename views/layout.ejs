@@ -167,47 +167,18 @@
                         </div>
                         <div class="btn-group">
                             <a class="con" href="" data-toggle="dropdown"><span class="fa fa-envelope"></span></a>
+                            <% if(req.session.authenticated) { %>
                             <div class="dropdown-menu pull-right" role="menu">
-                                <div class="drop-item">
-                                    <div class="drop-icon font-unread"><span class="fa fa-envelope-o"></span></div>
-                                    <div class="drop-info">
-                                        <div class="drop-content">Phasellus tincidunt tincidunt velit shal...</div>
-                                        <div class="drop-description">Angela Johnson</div>
-                                        <div class="drop-time">1/31 1:37 PM</div>
+                                <% _.each(req.session.user.receivedMessage, function(message){ %>
+                                    <div class="drop-item">
+                                        <div class="drop-icon font-unread"><span class="fa fa-envelope-o"></span></div>
+                                        <div class="drop-info">
+                                            <div class="drop-content"><%= message.subject %></div>
+                                            <div class="drop-description">User: <%= message.senderId %></div>
+                                            <div class="drop-time"><%= message.createdAt %></div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="drop-item">
-                                    <div class="drop-icon font-unread"><span class="fa fa-envelope-o"></span></div>
-                                    <div class="drop-info">
-                                        <div class="drop-content">Ut tempus eros massa ut dolor, aenan...</div>
-                                        <div class="drop-description">Steve Parsons</div>
-                                        <div class="drop-time">1/31 11:24 AM</div>
-                                    </div>
-                                </div>
-                                <div class="drop-item">
-                                    <div class="drop-icon font-read"><span class="fa fa-envelope-o"></span></div>
-                                    <div class="drop-info">
-                                        <div class="drop-content">Aliquet fringilla sem. Suspendisse velit...</div>
-                                        <div class="drop-description">Sam Wise</div>
-                                        <div class="drop-time">1/31 6:07 AM</div>
-                                    </div>
-                                </div>
-                                <div class="drop-item">
-                                    <div class="drop-icon font-read"><span class="fa fa-envelope-o"></span></div>
-                                    <div class="drop-info">
-                                        <div class="drop-content">Dolor ut eros velite sem shal tempetus...</div>
-                                        <div class="drop-description">Tim Bolton</div>
-                                        <div class="drop-time">1/30 9:46 PM</div>
-                                    </div>
-                                </div>
-                                <div class="drop-item">
-                                    <div class="drop-icon font-read"><span class="fa fa-envelope-o"></span></div>
-                                    <div class="drop-info">
-                                        <div class="drop-content">Sitel velit shal sem ut dolor massa tule...</div>
-                                        <div class="drop-description">Tim Bolton</div>
-                                        <div class="drop-time">1/30 9:46 PM</div>
-                                    </div>
-                                </div>
+                                <% }); %>
                                 <div class="drop-item drop-footer">
                                     <div class="drop-info">
                                         <div class="drop-description">See all of your messages...</div>
@@ -215,6 +186,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <% } %>
                         </div>
                         <div class="btn-group">
                             <a class="con" href="" data-toggle="dropdown"><span class="fa fa-user"></span></a>

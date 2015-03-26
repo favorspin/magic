@@ -28,6 +28,14 @@ var User = {
         haveList        : {
             collection  : 'haveList',
             via         : 'user'
+        },
+        receivedMessage : {
+          collection    : 'message',
+          via           : 'receiverId'
+        },
+        sentMessage     : {
+          collection    : 'message',
+          via           : 'senderId'
         }
   }
 };
