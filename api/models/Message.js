@@ -12,6 +12,7 @@ module.exports = {
     senderId        : { model: 'user' },
     subject         : { type: 'string' },
     message         : { type: 'text' },
+    read            : { type: 'integer' },
     inReplyTo       : { model: 'message' }
   }
 };

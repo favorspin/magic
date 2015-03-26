@@ -33,7 +33,6 @@ module.exports = {
                     if (cards.length === 0) {
                         res.notFound({cards: null}, 'search/results');
                     } else {
-                        curPage = curPage + 1;
                         res.ok({cards: cards, search: req.param('search'), page: curPage }, 'search/results');
                     }
                 }

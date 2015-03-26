@@ -42,6 +42,9 @@
             <% }) %>
             </tbody>
         </table>
-        <a href="/search?search=<%= data.search %>&page=<%= data.page %>">next</a>
+        <% if(data.page > 1) { %>
+        <a href="/search?search=<%= data.search %>&page=<%= data.page -1 %>">prev</a>
+        <% } %>
+        <a href="/search?search=<%= data.search %>&page=<%= data.page +1 %>">next</a>
         <% } %>
     </div>
