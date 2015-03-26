@@ -31,11 +31,11 @@ var User = {
         },
         receivedMessage : {
           collection    : 'message',
-          via           : 'receiverId'
+          via           : 'receiver'
         },
         sentMessage     : {
           collection    : 'message',
-          via           : 'senderId'
+          via           : 'sender'
         }
   }
 };

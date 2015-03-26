@@ -103,8 +103,8 @@
                         </div>
                         <div id="c-user" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                <a href="general.html" class="sbtn">Profile</a>
-                                <a href="buttons.html" class="sbtn">Messages</a>
+                                <a href="/user/<%= req.session.user.id %>" class="sbtn">Profile</a>
+                                <a href="/message?receiver=<%= req.session.user.id %>" class="sbtn">Messages</a>
                                 <a href="notifications.html" class="sbtn">Notifications</a>
                                 <a href="<%= sails.getBaseurl() %>/logout" class="sbtn">Logout</a>
                             </div>
@@ -181,8 +181,9 @@
                                 <% }); %>
                                 <div class="drop-item drop-footer">
                                     <div class="drop-info">
+                                        <a href="/message?receiver=<%= req.session.user.id %>">
                                         <div class="drop-description">See all of your messages...</div>
-                                        <div class="drop-time"><span class="fa fa-angle-double-right"></span></div>
+                                        <div class="drop-time"><span class="fa fa-angle-double-right"></span></div></a>
                                     </div>
                                 </div>
                             </div>
@@ -197,7 +198,7 @@
                                     <% if (req.session.authenticated) { %>
                                     <div class="profile-info">
                                         <%= req.session.user.forename %>
-                                        <br><a href="#">Profile</a> - <a href="#">Settings</a>
+                                        <br><a href="/user/<%= req.session.user.id %>">Profile</a> - <a href="#">Settings</a>
                                     </div>
                                     <% } else { %>
                                     <div class="profile-info">
@@ -291,13 +292,13 @@
                                         <span class="fa fa-dashboard"></span>User
                                     </li>
                                     <li class="linked">
-                                        <a href="general.html">Profile</a>
+                                        <a href="<%= req.session.user.id %>">Profile</a>
                                     </li>
                                     <li class="linked">
                                         <a href="buttons.html">Notifications</a>
                                     </li>
                                     <li class="linked">
-                                        <a href="buttons.html">Messages</a>
+                                        <a href="/messages?receiver=<%= req.session.user.id %>">Messages</a>
                                     </li>
                                     <li class="linked top">
                                         <a href="/logout">Log Out</a>

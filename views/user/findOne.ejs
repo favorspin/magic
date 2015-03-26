@@ -1,0 +1,39 @@
+
+
+    <div>
+        <%  if (!data) { %>
+            <hr>
+            User does not exist.
+        <% } else { %>
+        <hr>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th><%= data.username %></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        Name: <%= data.forename %> <%= data.surname %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Gender: <% if(data.gender == 1) { %> Male <% } else if(data.gender == 2) { %> Female <% } else { %> Other <% } %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Birthday: <%= data.birthday %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Email: <%= data.email %>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <% } %>
+    </div>
