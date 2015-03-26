@@ -6,7 +6,7 @@
 <ul class="cardInfo">
     <li> Name: <%= data.name %></li>
     <% if (data.manaCost) { %><li> Casting Cost: <%= data.manaCost %></li><% } %>
-    <li> Card Set: <img src="http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=<% if (data.set.gathererCode) { %><%= data.set.gathererCode %><% } else { %><%= data.set.code %><% } %>&size=small&rarity=<% if (data.rarity === 'Basic Land' || data.rarity === 'Common') { %>C<% } else if (data.rarity === 'Uncommon') { %>U<% } else if (data.rarity === 'Rare') { %>R<% } else { %>M<% } %>"> &mdash; <%= data.set.name %></a>, <%= data.rarity %></li>
+    <li> Card Set: <img src="http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=<% if (data.set.gathererCode) { %><%= data.set.gathererCode %><% } else { %><%= data.set.code %><% } %>&size=small&rarity=<% if (data.rarity === 'Basic Land' || data.rarity === 'Common') { %>C<% } else if (data.rarity === 'Uncommon') { %>U<% } else if (data.rarity === 'Rare') { %>R<% } else { %>M<% } %>"> &mdash; <a href="/set/<%= data.set.id %>"><%= data.set.name %></a>, <%= data.rarity %></li>
     <li> Card Type: <%= data.type %></li>
     <li> Color: <% if (data.colors) { %> <%= data.colors %> <% } else { %> Colorless <% } %></li>
     <li> Card Text: <%= data.text %></li>
