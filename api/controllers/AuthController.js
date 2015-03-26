@@ -165,12 +165,17 @@ var AuthController = {
           return tryAgain();
         }
 
-        // set authenticated variable and user info
-        req.session.authenticated = true;
-        req.session.user = user;
-        // Upon successful login, send the user to the homepage were req.user
-        // will available.
-        res.redirect('/');
+        User.findOneById(user.id).populate('receivedMessage').exec(function(err, user) {
+
+          // set authenticated variable and user info
+          req.session.authenticated = true;
+          req.session.user = user;
+          // Upon successful login, send the user to the homepage were req.user
+          // will available.
+          res.redirect('/');
+
+        });
+
       });
     });
   },

@@ -15,6 +15,9 @@
                     <th>Type</th>
                     <th>Condition</th>
                     <th>Quantity</th>
+                    <% if(req.session.authenticated && req.session.user.id == req.param('user')) { %>
+                    <th>Update</th>
+                    <% } %>
                 </tr>
             </thead>
             <tbody>
@@ -39,9 +42,14 @@
                         <%= has.condition.shorthand %>
                     </td>
                     <% if(req.session.authenticated && req.session.user.id == req.param('user')) { %>
+                    <form role="form" method="post" formaction="/">
                     <td>
-                        <input type="number" value="<%= has.qty %>">
+                        <input type="number" value="<%= has.qty %>" name="qty">
                     </td>
+                    <td>
+                        <button type="submit">Update</button>
+                    </td>
+                    </form>
                     <% } else { %>
                     <td>
                         <%= has.qty %>
