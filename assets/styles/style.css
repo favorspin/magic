@@ -5,14 +5,13 @@ img.cardImage {
     -moz-border-radius:13px;
     float: left;
     overflow: hidden;
+    margin-bottom: 20px;
 }
 img.cardThumb {
     height: 75px;
 }
 .cardInfo {
-    float: right;
     overflow: hidden;
-    width: 50%;
 }
 
 @media screen and (max-width: 600px) {
@@ -31,8 +30,5 @@ img.cardThumb {
     overflow: auto;
 }
 .listForm {
-    margin-top: 50;
-    margin-left: auto;
-    margin-right: auto;
     clear: both;
 }
