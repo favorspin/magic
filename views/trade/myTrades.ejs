@@ -1,0 +1,44 @@
+<% if(req.session.authenticated && req.param('user') == req.session.user.id) { %>
+    <% if(!data || data.lenth == 0 || data.trades == null) { %>
+        You have not made any trades
+    <% } else { %>
+        <table class="table table-striped">
+            <thead>
+                <th>ID</th>
+                <th>Initiated by</th>
+                <th>Received by</th>
+                <th>Accepted</th>
+                <th>Date</th>
+            </thead>
+            <tbody>
+                <% _.each(data.trades, function(trade) { %>
+                    <tr>
+                        <td><a href="/trade/<%= trade.id %>">#<%= trade.id %></a></td>
+                        <td>
+                            <% if(trade.sender.id == req.session.user.id) { %>
+                                <%= trade.sender.username %>
+                            <% } else { %>
+                                <a href="/user/<%= trade.sender.id %>"><%= trade.sender.username %></a>
+                            <% } %>
+                        </td>
+                        <td>
+                            <% if(trade.receiver.id == req.session.user.id) { %>
+                                <%= trade.receiver.username %>
+                            <% } else { %>
+                                <a href="/user/<%= trade.receiver.id %>"><%= trade.receiver.username %></a>
+                            <% } %>
+                        </td>
+                        <td>
+                            <form>
+                                <button type="submit">Accept Trade</button>
+                            </form>
+                        </td>
+                        <td><%= trade.createdAt %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    <% } %>
+<% } else { %>
+    You do not have permssion to view this page
+<% } %>
