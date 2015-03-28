@@ -12,6 +12,8 @@
                     <th>Username</th>
                     <th>First Name</th>
                     <th>Last Name</th>
+                    <th>Have List</th>
+                    <th>Want List</th>
                     <% if(req.session.authenticated) { %>
                     <th>Send Message</th>
                     <% } %>
@@ -29,9 +31,17 @@
                     <td>
                         <%= user.surname %>
                     </td>
+                    <td>
+                        <a href="/haveList?user=<%= user.id %>">Have List</a>
+                    </td>
+                    <td>
+                        <a href="/wantList?user=<%= user.id %>">Want List</a>
+                    </td>
                     <% if(req.session.authenticated) { %>
                     <td>
-                        <a href="#">Make a Friend!</a>
+                        <% if(req.session.user.id != user.id) { %>
+                            <a href="/message/compose?to=<%= user.username %>">Make a Friend!</a>
+                        <% } %>
                     </td>
                     <% } %>
                 </tr>
