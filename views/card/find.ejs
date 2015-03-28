@@ -1,8 +1,7 @@
 
     <div>
         <%  if (!data || data.length == 0) { %>
-            <hr>
-            There are no cards in the database
+            There are no results for your search
         <% } else { %>
         <% if(req.param('skip')) { %>
             <a href="/card?sort=name&limit=25<% if(req.param('skip') > 25) { %>&skip=<%= (+req.param('skip')) - 25 %><% } %>">Prev</a><% } %>
