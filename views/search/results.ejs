@@ -1,6 +1,6 @@
     <div>
         <form role="form" action="/search" method="post">
-            Search for a Card: <input type="text" name="search" placeholder="Search">
+            Search for a Card: <input type="text" name="search" placeholder="Search" <% if(req.param('search')) { %> value="<%= req.param('search') %><% } %>">
             <button type="submit">Search</button>
         </form>
     </div>
