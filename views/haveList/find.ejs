@@ -4,6 +4,7 @@
             <hr>
             There are no cards in this Have List.
         <% } else { %>
+        <a href="/wantList?user=<%= req.param('user') %>">Want List</a>
         <hr>
         <table class="table table-striped">
             <thead>

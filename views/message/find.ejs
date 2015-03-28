@@ -21,7 +21,7 @@
                 </tr>
             </thead>
             <tbody>
-            <%_.each(data, function(message) { %>
+            <%_.each(data.reverse(), function(message) { %>
                 <tr>
                     <td>
                         <%= message.sender.username %>

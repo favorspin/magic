@@ -169,15 +169,17 @@
                         <div class="btn-group">
                             <a class="con" href="#" data-toggle="dropdown"><span class="fa fa-envelope"></span></a>
                             <div class="dropdown-menu pull-right" role="menu">
-                                <% _.each(req.session.user.receivedMessage, function(message){ %>
-                                    <div class="drop-item">
+                                <% _.each(req.session.user.receivedMessage.reverse(), function(message){ %>
+                                    <!--<div class="drop-item">
                                         <div class="drop-icon font-<% if(message.read = 0) { %>un<% } %>read"><span class="fa fa-envelope-o"></span></div>
                                         <div class="drop-info">
+                                        <a href="/message/<%= message.id %>">
                                             <div class="drop-content"><%= message.subject %></div>
                                             <div class="drop-description">User #<%= message.senderId %></div>
                                             <div class="drop-time"><%= new Date(message.createdAt) %></div>
+                                        </a>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 <% }); %>
                                 <div class="drop-item drop-footer">
                                     <div class="drop-info">
