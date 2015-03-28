@@ -1,0 +1,19 @@
+<% if(req.session.authenticated) { %>
+    <form role="form" method="post" action="/message/compose">
+        <% if(req.param('to')) { %>
+            To: <%= req.param('to') %>
+            <input type="hidden" name="to" value="<%= req.param('to') %>">
+        <% } else { %>
+            To: <input type="text" name="to">
+        <% } %><br />
+        <input type="text" name="subject" placeholder="Subject" <% if(req.param('subject')) { %>value="Re: <%= req.param('subject') %><% } %>"><br />
+        <input type="text" name="message" placeholder="Message">
+        <% if(req.param('inReplyTo')) { %>
+            <input type="hidden" name="inReplyTo" value="<%= req.param('inReplyTo') %>">
+        <% } %>
+        <input type="hidden" name="from" value="<%= req.session.user.id %>">
+        <button type="submit">Send</button>
+    </form>
+<% } else { %>
+    You do not have permission to view this page
+<% } %>
