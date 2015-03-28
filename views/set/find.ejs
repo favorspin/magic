@@ -1,6 +1,14 @@
-
+    <hr>
+<%  if (!data || data.length == 0) { %>
+    There are no results for your search
+<% } else { %>
+        <% if(req.param('skip')) { %>
+            <a href="/set?limit=25<% if(req.param('skip') > 25) { %>&skip=<%= (+req.param('skip')) - 25 %><% } %>">Prev</a><% } %>
+            <a href="/set?limit=25&skip=<% if(req.param('skip')) { %><%= (+req.param('skip')) + (+25) %><% } else { %>25<% } %>">Next</a>
+        <hr>
 <h3>All Sets</h3>
     <%  _.each(data, function(set) { %>
         <img src="http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=<% if (set.gathererCode) { %><%= set.gathererCode %><% } else { %><%= set.code %><% } %>&size=small&rarity=C">
         <a href="<%= sails.getBaseurl() %>/card?set=<%= set.id %>"><%= set.name %></a><br />
     <% }) %>
+<% } %>

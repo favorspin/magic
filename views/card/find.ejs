@@ -1,10 +1,12 @@
 
     <div>
-        <%  if (!data) { %>
+        <%  if (!data || data.length == 0) { %>
             <hr>
             There are no cards in the database
         <% } else { %>
-        <a href="/card?sort=name&limit=25">Next</a>
+        <% if(req.param('skip')) { %>
+            <a href="/card?sort=name&limit=25<% if(req.param('skip') > 25) { %>&skip=<%= (+req.param('skip')) - 25 %><% } %>">Prev</a><% } %>
+        <a href="/card?sort=name&limit=25&skip=<% if(req.param('skip')) { %><%= (+req.param('skip')) + (+25) %><% } else { %>25<% } %>">Next</a>
         <hr>
         <table class="table table-striped">
             <thead>
