@@ -63,7 +63,13 @@ module.exports.routes = {
 
   // have/want list routes
   'post /haveList': 'HaveListController.add',
-  'post /wantList': 'WantListController.add'
+  'post /wantList': 'WantListController.add',
+
+  //message routes
+  'get /message/compose': {
+    view: 'message/compose'
+  },
+  'post /message/compose': 'MessageController.compose'
 
   /***************************************************************************
   *                                                                          *

@@ -3,9 +3,9 @@
     <div>
         <% if (req.session.authenticated && (req.param('receiver') == req.session.user.id || req.param('sender') == req.session.user.id)) { %>
         <% if (req.param('receiver')) { %>
-            Inbox
+            Inbox | <a href="/message?sender=<%= req.session.user.id %>">Sent</a> | <a href="/message/compose">Compose</a>
         <% } else { %>
-            Sent Messages
+            Sent Messages | <a href="/message?receiver=<%= req.session.user.id %>">Inbox</a> | <a href="/message/compose">Compose</a>
         <% } %>
         <%  if (!data || data.length < 1) { %>
             <hr>

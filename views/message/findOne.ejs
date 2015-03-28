@@ -2,8 +2,7 @@
 
     <div>
         <% if (req.session.authenticated && (data.receiver.id == req.session.user.id || data.sender.id == req.session.user.id)) { %>
-        <%  if (!data) { %>
-            <hr>
+        <% if (!data || data.length == 0) { %>
             Message does not exist.
         <% } else { %>
         <hr>
@@ -30,11 +29,15 @@
                         <p><%= data.message %></p>
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        <a href="compose?to=<%= data.sender.username %>&inReplyTo=<%= data.id %>&subject=<%= data.subject %>">Reply</a>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <% } %>
         <% } else { %>
-        <hr>
         You do not have permission to view this page
         <% } %>
     </div>
