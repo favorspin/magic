@@ -36,6 +36,14 @@ var User = {
         sentMessage     : {
           collection    : 'message',
           via           : 'sender'
+        },
+        receivedTrade   : {
+          collection    : 'trade',
+          via           : 'receiver'
+        },
+        sentTrade       : {
+          collection    : 'trade',
+          via           : 'sender'
         }
   }
 };
