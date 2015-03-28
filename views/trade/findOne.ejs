@@ -1,0 +1,61 @@
+<% if(req.session.authenticated && (data.receiver.id == req.session.user.id || data.sender.id == req.session.user.id)) { %>
+    <% if(!data || data.lenth == 0) { %>
+        This trade does not exist.
+    <% } else { %>
+        <h2>Trade #<%= data.id %></h2>
+        <a href="/trade/myTrades?user=<%= req.session.user.id %>">Back to Trades</a>
+        <table class="table table-striped">
+            <% if(data.sender.id == req.session.user.id) { %>
+                <h2>Your Cards</h2>
+            <% } else { %>
+                <h2><a href="/user/<%= data.sender.id %>"><%= data.sender.username %></a>'s Cards</h2>
+            <% } %>
+            <thead>
+                <th>Name</th>
+                <th>Set</th>
+                <th>Condition</th>
+                <th>Qty</th>
+            </thead>
+            <tbody>
+                <% _.each(data.senderCards, function(card) { %>
+                    <tr>
+                        <td><a href="/card/<%= card.id %>"><%= card.name %></a></td>
+                        <td><a href="/set/<%= card.set.id %>"><%= card.set.name %></td>
+                        <td>Condition</td>
+                        <td>Qty</td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+        <table class="table table-striped">
+            <% if(data.receiver.id == req.session.user.id) { %>
+                <h2>Your Cards</h2>
+            <% } else { %>
+                <h2><a href="/user/<%= data.receiver.id %>"><%= data.receiver.username %></a>'s Cards</h2>
+            <% } %>
+            <thead>
+                <th>Name</th>
+                <th>Set</th>
+                <th>Condition</th>
+                <th>Qty</th>
+            </thead>
+            <tbody>
+                <% _.each(data.receiverCards, function(card) { %>
+                    <tr>
+                        <td><a href="/card/<%= card.id %>"><%= card.name %></a></td>
+                        <td><a href="/set/<%= card.set.id %>"><%= card.set.name %></td>
+                        <td>Condition</td>
+                        <td>Qty</td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+        <% if(data.receiver.id == req.session.user.id) { %>
+            <button>Accept Trade</button>
+        <% } else { %>
+            Waiting for <%= data.receiver.username %> to accept
+        <% } %>
+    <% } %>
+<% } else { %>
+    You do not have permssion to view this page
+<% } %>
