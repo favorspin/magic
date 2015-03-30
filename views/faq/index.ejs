@@ -1,0 +1,117 @@
+<section class="faqGroup">
+    <header class="faqGroupHeader">
+        <h1>FAQ</h1>
+    </header>
+    <article class="faqQuestions">
+        <article class="singleFaq">
+            <header class="singleFaqHeader">
+                What do you do?
+            </header>
+            <div class="singleFaqContent">
+                <p>
+                    Magic the Gathering&trade; has always had an enormous meta-game built around the trading of cards. The problem though, is that generally it's hard to trade cards outside of local game stores. For some, this is enough &ndash; the communities in the cities they live provide them with the opportunities to trade for the cards they want on a regular basis. But for others, it can be hard to find someone to trade with, especially if you're looking for a rare or expensive card. And trading online is scary, because you have to trust that the other party will follow through after you've sent them your half of the trade.
+                </p>
+                <p>
+                    We seek to remedy this problem. Magic the Gathering&trade; is a global community, and its meta-game should exist on the same level.
+                </p>
+            </div>
+        </article>
+        <article class="singleFaq">
+            <header class="singleFaqHeader">
+                How does it work?
+            </header>
+            <div class="singleFaqContent">
+                <p>
+                    It's simple! Search users' have lists for cards that you would like to trade for, then select cards from your own have list and offer a trade.
+                </p>
+                <p>
+                    Once the other user accepts the trade both parties will ship their cards to the given address for escrow. Upon receipt of both parties cards, an inspection for quality will take place. If there are any discrepancies in card condition, quantities, or otherwise, both parties will be notified by email. If both parties agree to the conditions (or there are none), the cards will be packaged and shipped to their new owners.
+                </p>
+            </div>
+        </article>
+        <article class="singleFaq">
+            <header class="singleFaqHeader">
+                How much does it cost?
+            </header>
+            <div class="singleFaqContent">
+                <p>
+                    Trades cost $6 or 5% of the trade value (whichever is greater), this includes shipping from escrow to your door (international rates may vary).
+                </p>
+                <p>
+                    You will need to ship your cards to escrow, which should cost around $2 (<a href="/faq/shippingInstructions">see our instructions here</a>).
+                </p>
+            </div>
+        </article>
+        <article class="singleFaq">
+            <header class="singleFaqHeader">
+                Can't I just make the trade myself, and skip the fees?
+            </header>
+            <div class="singleFaqContent">
+                <p>
+                    You can. After all, they're your cards. But trading online through the mail is dangerous - there are many cases of people sending valuable cards to another person through the mail only to never hear from them again. We just offer a safe way to ensure that your trade is fair and that you recieve the cards you wanted in return for the ones you sent.
+                </p>
+            </div>
+        </article>
+        <article class="singleFaq">
+            <header class="singleFaqHeader">
+                How long does it take?
+            </header>
+            <div class="singleFaqContent">
+                <p>
+                    Trades take on average between 5 and 10 business days to complete, depending on shipping distance and method.
+                </p>
+            </div>
+        </article>
+        <article class="singleFaq">
+            <header class="singleFaqHeader">
+                Are my cards insured? How do I know where they are?
+            </header>
+            <div class="singleFaqContent">
+                <p>
+                    When shipped from escrow, all cards are shipped with tracking, delivery confirmation, and insurance to cover the value of the cards in the shipment. Furthermore, you can view the status of your trade on the <% if(req.session.authenticated) { %><a href="/trade/myTrades?user=<%= req.session.user.id %>">My Trades</a><% } else { %>My Trades<% } %> page. For more information about trade status, click <a href="/tradeStatus">here</a>.
+                </p>
+                <p>
+                    When shipping to escrow, we reccommend you include tracking information, delivery confirmation and insurance on your package. Unfortunately, we cannot control, nor are we responsible for any damage that may happen to the cards during shipment to us. For those reasons, we recommend you follow our <a href="/faq/shippingInstructions">shipping instructions</a>.
+                </p>
+            </div>
+        </article>
+        <article class="singleFaq">
+            <header class="singleFaqHeader">
+                What happens if the other party doesn't send their cards?
+            </header>
+            <div class="singleFaqContent">
+                <p>
+                    If another user doesn't send their cards, we have a few of options:<br />
+                    <ol>
+                        <li>We will reach out to the other party to see what is causing the delay.</li>
+                        <li>If they do not respond, we will search for another user and suggest the same (or similar) trade.</li>
+                        <li>Finally, if no trade can be made, we will ship the cards back to you and refund your escrow fee.</li>
+                    </ol>
+                </p>
+                <p>
+                    Additionally, the other user's account will be flagged, they will be removed from search, they will be unable to perform trades until the flag is lifted by an administrator.
+                </p>
+            </div>
+        </article>
+        <article class="singleFaq">
+            <header class="singleFaqHeader">
+                Can I just buy cards from another user?
+            </header>
+            <div class="singleFaqContent">
+                <p>
+                    Unfortunately, we do not offer the ability to trade cards for money through our site. Although, all card information pages have links to TCGPlayer.com where you can purchase singles directly.
+                </p>
+            </div>
+        </article>
+        <article class="singleFaq">
+            <header class="singleFaqHeader">
+                Are you trying to replace local game stores for trading?
+            </header>
+            <div class="singleFaqContent">
+                <p>
+                    Absolutely not. Trading in local game stores is essential to the Magic the Gathering&trade; community, and we have no intent to replace them. In fact, we partner with local game stores to offer pick up and drop off of trades if you'd like to skip the shipping portion of your trade.
+                </p>
+            </div>
+        </article>
+    </article>
+</section>
