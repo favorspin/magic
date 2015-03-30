@@ -19,7 +19,8 @@ module.exports = {
             collection: 'card',
             via: 'senderTrades',
             dominant: true
-        }
+        },
+        status          : { model: 'tradeStatus' }
     }
 };
 

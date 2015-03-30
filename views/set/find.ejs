@@ -8,6 +8,6 @@
 <h3>All Sets</h3>
     <%  _.each(data, function(set) { %>
         <img src="http://gatherer.wizards.com/Handlers/Image.ashx?type=symbol&set=<% if (set.gathererCode) { %><%= set.gathererCode %><% } else { %><%= set.code %><% } %>&size=small&rarity=C">
-        <a href="<%= sails.getBaseurl() %>/card?set=<%= set.id %>"><%= set.name %></a><br />
+        <a href="<%= sails.getBaseurl() %>/card?set=<%= set.id %>&limit=25"><%= set.name %></a><br />
     <% }) %>
 <% } %>

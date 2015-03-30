@@ -37,11 +37,11 @@ var User = {
           collection    : 'message',
           via           : 'sender'
         },
-        receivedTrade   : {
+        receivedTrades  : {
           collection    : 'trade',
           via           : 'receiver'
         },
-        sentTrade       : {
+        sentTrades      : {
           collection    : 'trade',
           via           : 'sender'
         }

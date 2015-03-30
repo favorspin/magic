@@ -51,9 +51,37 @@
             </tbody>
         </table>
         <% if(data.receiver.id == req.session.user.id) { %>
-            <button>Accept Trade</button>
+            <% if (data.status.id == 1) { %>
+                This trade is <%= data.status.name %><br />
+                <form id="trade<%= data.id %>" class="tradeAccept" method="post" action="/trade/accept">
+                    <input type="hidden" name="tradeId" value="<%= data.id %>">
+                    <button type="submit">Accept Trade</button>
+                </form>
+                <form id="trade-dec<%= data.id %>" class="tradeDecline" method="post" action="/trade/decline">
+                    <input type="hidden" name="tradeId" value="<%= data.id %>">
+                    <button type="submit">Decline Trade</button>
+                </form>
+            <% } else if(data.status.id == 2 || data.status.id == 3) { %>
+                You have <%= data.status.name %> this trade.
+            <% } else if(data.status.id == 4 || data.status.id == 5) { %>
+                This trade was Canceled by <% if(data.status.id == 4) { %><%= data.sender.username %><% } else { %>the Administrator<% } %>
+            <% } else { %>
+                This trade is <%= data.status.name %>.
+            <% } %>
         <% } else { %>
-            Waiting for <%= data.receiver.username %> to accept
+            <% if (data.status.id == 1) { %>
+                Waiting for <%= data.receiver.username %> to accept.
+                <form id="trade-canc<%= data.id %>" class="tradeCancel" method="post" action="/trade/cancel">
+                    <input type="hidden" name="tradeId" value="<%= data.id %>">
+                    <button type="submit">Cancel Trade</button>
+                </form>
+            <% } else if (data.status.id == 2 || data.status.id == 3) { %>
+                <%= data.receiver.username %> has <%= data.status.name %> your trade offer.
+            <% } else if (data.status.id == 4 || data.status.id == 5) { %>
+                <% if(data.status.id == 4) { %>You have <% } else { %>The Administrator has <% } %>Canceled this trade.
+            <% } else { %>
+                This trade is <%= data.status.name %>.
+            <% } %>
         <% } %>
     <% } %>
 <% } else { %>

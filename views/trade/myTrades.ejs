@@ -7,7 +7,7 @@
                 <th>ID</th>
                 <th>Initiated by</th>
                 <th>Received by</th>
-                <th>Accepted</th>
+                <th>Status</th>
                 <th>Date</th>
             </thead>
             <tbody>
@@ -29,9 +29,7 @@
                             <% } %>
                         </td>
                         <td>
-                            <form>
-                                <button type="submit">Accept Trade</button>
-                            </form>
+                            <%= trade.status.name %>
                         </td>
                         <td><%= trade.createdAt %></td>
                     </tr>

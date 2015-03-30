@@ -20,6 +20,7 @@ module.exports = {
             .populate('senderCards')
             .populate('sender')
             .populate('receiver')
+            .populate('status')
             .exec(function(err,trades) {
                 if(err) {
                     res.badRequest('There was an error. Please try again.', '500');
