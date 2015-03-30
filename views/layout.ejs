@@ -167,7 +167,7 @@
                         </div>
                         <% if(req.session.authenticated) { %>
                         <div class="btn-group">
-                            <a class="con" href="#" data-toggle="dropdown"><span class="fa fa-envelope"></span></a>
+                            <a class="con" href="message?receiver=<%= req.session.user.id %>" data-toggle="dropdown"><span class="fa fa-envelope"></span></a>
                             <div class="dropdown-menu pull-right" role="menu">
                                 <% _.each(req.session.user.receivedMessage.reverse(), function(message){ %>
                                     <!--<div class="drop-item">
@@ -210,7 +210,7 @@
                                 </li>
                                 <% if(req.session.authenticated) { %>
                                 <li class="linked">
-                                    <a href="#">
+                                    <a href="/message?receiver=<%= req.session.user.id %>">
                                         <span class="fa fa-envelope-o"></span>Messages
                                     </a>
                                 </li>
@@ -300,7 +300,7 @@
                                         <a href="buttons.html">Notifications</a>
                                     </li>
                                     <li class="linked">
-                                        <a href="/messages?receiver=<%= req.session.user.id %>">Messages</a>
+                                        <a href="/message?receiver=<%= req.session.user.id %>">Messages</a>
                                     </li>
                                     <li class="linked top">
                                         <a href="/logout">Log Out</a>
