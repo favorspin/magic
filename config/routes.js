@@ -69,7 +69,12 @@ module.exports.routes = {
   'get /message/compose': {
     view: 'message/compose'
   },
-  'post /message/compose': 'MessageController.compose'
+  'post /message/compose': 'MessageController.compose',
+
+  //misc routes
+  'get /faq': {
+    view: 'faq/index'
+  }
 
   /***************************************************************************
   *                                                                          *
